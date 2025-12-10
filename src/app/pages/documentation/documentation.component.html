@@ -2,15 +2,19 @@
   <div class="container">
     <div class="docs-layout">
       <!-- Sidebar Navigation -->
-      <aside class="docs-sidebar">
+      <!-- Mobile Menu Toggle -->
+      <button class="mobile-menu-toggle" (click)="toggleMobileMenu()" [class.active]="mobileMenuOpen">
+        <span></span>
+        <span></span>
+        <span></span>
+      </button>
+
+      <aside class="docs-sidebar" [class.mobile-open]="mobileMenuOpen">
         <nav class="docs-nav">
           <h3>{{ 'documentation_nav_title' | translate }}</h3>
           <ul class="nav-list">
             <li *ngFor="let section of sections">
-              <a
-                [class.active]="activeSection === section.id"
-                (click)="scrollToSection(section.id)"
-              >
+              <a [class.active]="activeSection === section.id" (click)="scrollToSection(section.id)">
                 {{ section.title }}
               </a>
             </li>
@@ -27,7 +31,7 @@
             {{ 'documentation_intro' | translate }}
           </p>
 
-  
+
 
           <h2>{{ 'documentation_installation_title' | translate }}</h2>
           <div class="code-block">
@@ -53,7 +57,8 @@ TWKSDK.init(&#123;
             <h3>Method 1: Direct Access (Convenience)</h3>
             <p>Use direct methods for quick access to commonly used functions:</p>
             <div class="code-block">
-              <button class="copy-btn" (click)="copyCode('code-direct', $event)" [class.copied]="isCopied('code-direct')">
+              <button class="copy-btn" (click)="copyCode('code-direct', $event)"
+                [class.copied]="isCopied('code-direct')">
                 <span *ngIf="!isCopied('code-direct')">Copy</span>
                 <span *ngIf="isCopied('code-direct')">Copied!</span>
               </button>
@@ -68,7 +73,8 @@ const userName = await TWKSDK.getUserFullName();</code></pre>
             <h3>Method 2: Organized by Category</h3>
             <p>Use categorized namespaces for organized access to all features:</p>
             <div class="code-block">
-              <button class="copy-btn" (click)="copyCode('code-organized', $event)" [class.copied]="isCopied('code-organized')">
+              <button class="copy-btn" (click)="copyCode('code-organized', $event)"
+                [class.copied]="isCopied('code-organized')">
                 <span *ngIf="!isCopied('code-organized')">Copy</span>
                 <span *ngIf="isCopied('code-organized')">Copied!</span>
               </button>
@@ -113,7 +119,8 @@ const vehicles = await TWKSDK.Vehicles.getList();</code></pre>
             <h3>TWKSDK.Device.getInfo() or TWKSDK.getDeviceInfo()</h3>
             <p>Get comprehensive device information including appearance mode and language.</p>
             <div class="code-block">
-              <button class="copy-btn" (click)="copyCode('code-device-1', $event)" [class.copied]="isCopied('code-device-1')">
+              <button class="copy-btn" (click)="copyCode('code-device-1', $event)"
+                [class.copied]="isCopied('code-device-1')">
                 <span *ngIf="!isCopied('code-device-1')">Copy</span>
                 <span *ngIf="isCopied('code-device-1')">Copied!</span>
               </button>
@@ -131,7 +138,8 @@ console.log(`Appearance: $&#123;info.result.appearance&#125;, Language: $&#123;i
             <h3>TWKSDK.Device.getAppearance() or TWKSDK.getAppearance()</h3>
             <p>Get the device appearance mode. Returns 1 for light mode, 2 for dark mode.</p>
             <div class="code-block">
-              <button class="copy-btn" (click)="copyCode('code-device-2', $event)" [class.copied]="isCopied('code-device-2')">
+              <button class="copy-btn" (click)="copyCode('code-device-2', $event)"
+                [class.copied]="isCopied('code-device-2')">
                 <span *ngIf="!isCopied('code-device-2')">Copy</span>
                 <span *ngIf="isCopied('code-device-2')">Copied!</span>
               </button>
@@ -149,7 +157,8 @@ const isDark = appearance === 2;</code></pre>
             <h3>TWKSDK.Device.isDarkMode()</h3>
             <p>Check if device is in dark mode.</p>
             <div class="code-block">
-              <button class="copy-btn" (click)="copyCode('code-device-3', $event)" [class.copied]="isCopied('code-device-3')">
+              <button class="copy-btn" (click)="copyCode('code-device-3', $event)"
+                [class.copied]="isCopied('code-device-3')">
                 <span *ngIf="!isCopied('code-device-3')">Copy</span>
                 <span *ngIf="isCopied('code-device-3')">Copied!</span>
               </button>
@@ -164,7 +173,8 @@ if (isDark) &#123;
             <h3>TWKSDK.Device.getLanguage()</h3>
             <p>Get the device language preference (e.g., 'en', 'ar').</p>
             <div class="code-block">
-              <button class="copy-btn" (click)="copyCode('code-device-4', $event)" [class.copied]="isCopied('code-device-4')">
+              <button class="copy-btn" (click)="copyCode('code-device-4', $event)"
+                [class.copied]="isCopied('code-device-4')">
                 <span *ngIf="!isCopied('code-device-4')">Copy</span>
                 <span *ngIf="isCopied('code-device-4')">Copied!</span>
               </button>
@@ -182,7 +192,8 @@ if (isDark) &#123;
             <h3>TWKSDK.User.getFullName() or TWKSDK.getUserFullName()</h3>
             <p>Get the user's full name (automatically uses V2 endpoint when available).</p>
             <div class="code-block">
-              <button class="copy-btn" (click)="copyCode('code-user-1', $event)" [class.copied]="isCopied('code-user-1')">
+              <button class="copy-btn" (click)="copyCode('code-user-1', $event)"
+                [class.copied]="isCopied('code-user-1')">
                 <span *ngIf="!isCopied('code-user-1')">Copy</span>
                 <span *ngIf="isCopied('code-user-1')">Copied!</span>
               </button>
@@ -231,7 +242,8 @@ if (name) &#123;
             <h3>TWKSDK.Family.getMembers(options?)</h3>
             <p>Get list of family members with optional age and gender filters.</p>
             <div class="code-block">
-              <button class="copy-btn" (click)="copyCode('code-family-1', $event)" [class.copied]="isCopied('code-family-1')">
+              <button class="copy-btn" (click)="copyCode('code-family-1', $event)"
+                [class.copied]="isCopied('code-family-1')">
                 <span *ngIf="!isCopied('code-family-1')">Copy</span>
                 <span *ngIf="isCopied('code-family-1')">Copied!</span>
               </button>
@@ -250,7 +262,8 @@ const females = await TWKSDK.Family.getMembers(&#123; gender: 'female' &#125;);<
             <h3>TWKSDK.Family.getSponsors(options?)</h3>
             <p>Get list of sponsored individuals with optional filters.</p>
             <div class="code-block">
-              <button class="copy-btn" (click)="copyCode('code-family-2', $event)" [class.copied]="isCopied('code-family-2')">
+              <button class="copy-btn" (click)="copyCode('code-family-2', $event)"
+                [class.copied]="isCopied('code-family-2')">
                 <span *ngIf="!isCopied('code-family-2')">Copy</span>
                 <span *ngIf="isCopied('code-family-2')">Copied!</span>
               </button>
@@ -268,7 +281,8 @@ const females = await TWKSDK.Family.getMembers(&#123; gender: 'female' &#125;);<
             <h3>TWKSDK.Vehicles.getList()</h3>
             <p>Get list of vehicles registered to the user.</p>
             <div class="code-block">
-              <button class="copy-btn" (click)="copyCode('code-vehicles-1', $event)" [class.copied]="isCopied('code-vehicles-1')">
+              <button class="copy-btn" (click)="copyCode('code-vehicles-1', $event)"
+                [class.copied]="isCopied('code-vehicles-1')">
                 <span *ngIf="!isCopied('code-vehicles-1')">Copy</span>
                 <span *ngIf="isCopied('code-vehicles-1')">Copied!</span>
               </button>
@@ -280,7 +294,8 @@ const females = await TWKSDK.Family.getMembers(&#123; gender: 'female' &#125;);<
             <h3>TWKSDK.Vehicles.getAllViolations()</h3>
             <p>Get all violations (both paid and unpaid).</p>
             <div class="code-block">
-              <button class="copy-btn" (click)="copyCode('code-vehicles-2', $event)" [class.copied]="isCopied('code-vehicles-2')">
+              <button class="copy-btn" (click)="copyCode('code-vehicles-2', $event)"
+                [class.copied]="isCopied('code-vehicles-2')">
                 <span *ngIf="!isCopied('code-vehicles-2')">Copy</span>
                 <span *ngIf="isCopied('code-vehicles-2')">Copied!</span>
               </button>
@@ -306,7 +321,8 @@ console.log(`Unpaid violations: $&#123;unpaid.result.length&#125;`);</code></pre
             <h3>TWKSDK.Gallery.pickImage()</h3>
             <p>Pick a single image from the gallery.</p>
             <div class="code-block">
-              <button class="copy-btn" (click)="copyCode('code-gallery-1', $event)" [class.copied]="isCopied('code-gallery-1')">
+              <button class="copy-btn" (click)="copyCode('code-gallery-1', $event)"
+                [class.copied]="isCopied('code-gallery-1')">
                 <span *ngIf="!isCopied('code-gallery-1')">Copy</span>
                 <span *ngIf="isCopied('code-gallery-1')">Copied!</span>
               </button>
@@ -336,7 +352,8 @@ if (image.success) &#123;
             <h3>TWKSDK.Camera.takePhoto()</h3>
             <p>Take a photo using the device camera.</p>
             <div class="code-block">
-              <button class="copy-btn" (click)="copyCode('code-camera-1', $event)" [class.copied]="isCopied('code-camera-1')">
+              <button class="copy-btn" (click)="copyCode('code-camera-1', $event)"
+                [class.copied]="isCopied('code-camera-1')">
                 <span *ngIf="!isCopied('code-camera-1')">Copy</span>
                 <span *ngIf="isCopied('code-camera-1')">Copied!</span>
               </button>
@@ -351,7 +368,8 @@ if (photo.success) &#123;
             <h3>TWKSDK.Camera.recordVideo()</h3>
             <p>Record a video using the device camera.</p>
             <div class="code-block">
-              <button class="copy-btn" (click)="copyCode('code-camera-2', $event)" [class.copied]="isCopied('code-camera-2')">
+              <button class="copy-btn" (click)="copyCode('code-camera-2', $event)"
+                [class.copied]="isCopied('code-camera-2')">
                 <span *ngIf="!isCopied('code-camera-2')">Copy</span>
                 <span *ngIf="isCopied('code-camera-2')">Copied!</span>
               </button>
@@ -369,7 +387,8 @@ if (photo.success) &#123;
             <h3>TWKSDK.Files.pickFileBase64()</h3>
             <p>Pick a file and get its content as base64.</p>
             <div class="code-block">
-              <button class="copy-btn" (click)="copyCode('code-files-1', $event)" [class.copied]="isCopied('code-files-1')">
+              <button class="copy-btn" (click)="copyCode('code-files-1', $event)"
+                [class.copied]="isCopied('code-files-1')">
                 <span *ngIf="!isCopied('code-files-1')">Copy</span>
                 <span *ngIf="isCopied('code-files-1')">Copied!</span>
               </button>
@@ -385,7 +404,8 @@ if (file.success) &#123;
             <h3>TWKSDK.Files.pickFile()</h3>
             <p>Pick a file and get its ID.</p>
             <div class="code-block">
-              <button class="copy-btn" (click)="copyCode('code-files-2', $event)" [class.copied]="isCopied('code-files-2')">
+              <button class="copy-btn" (click)="copyCode('code-files-2', $event)"
+                [class.copied]="isCopied('code-files-2')">
                 <span *ngIf="!isCopied('code-files-2')">Copy</span>
                 <span *ngIf="isCopied('code-files-2')">Copied!</span>
               </button>
@@ -403,7 +423,8 @@ if (file.success) &#123;
             <h3>TWKSDK.Permissions.requestAll()</h3>
             <p>Request all common permissions at once.</p>
             <div class="code-block">
-              <button class="copy-btn" (click)="copyCode('code-permissions-1', $event)" [class.copied]="isCopied('code-permissions-1')">
+              <button class="copy-btn" (click)="copyCode('code-permissions-1', $event)"
+                [class.copied]="isCopied('code-permissions-1')">
                 <span *ngIf="!isCopied('code-permissions-1')">Copy</span>
                 <span *ngIf="isCopied('code-permissions-1')">Copied!</span>
               </button>
@@ -436,7 +457,8 @@ console.log('Notifications:', perms.pushNotification.success);</code></pre>
             <h3>TWKSDK.Auth.authenticateBiometric()</h3>
             <p>Authenticate user using biometric (fingerprint/face recognition).</p>
             <div class="code-block">
-              <button class="copy-btn" (click)="copyCode('code-auth-1', $event)" [class.copied]="isCopied('code-auth-1')">
+              <button class="copy-btn" (click)="copyCode('code-auth-1', $event)"
+                [class.copied]="isCopied('code-auth-1')">
                 <span *ngIf="!isCopied('code-auth-1')">Copy</span>
                 <span *ngIf="isCopied('code-auth-1')">Copied!</span>
               </button>
@@ -451,7 +473,8 @@ if (result.success) &#123;
             <h3>TWKSDK.Auth.generateToken()</h3>
             <p>Generate an authentication token (uses V2 endpoint when available).</p>
             <div class="code-block">
-              <button class="copy-btn" (click)="copyCode('code-auth-2', $event)" [class.copied]="isCopied('code-auth-2')">
+              <button class="copy-btn" (click)="copyCode('code-auth-2', $event)"
+                [class.copied]="isCopied('code-auth-2')">
                 <span *ngIf="!isCopied('code-auth-2')">Copy</span>
                 <span *ngIf="isCopied('code-auth-2')">Copied!</span>
               </button>
@@ -469,7 +492,8 @@ if (result.success) &#123;
             <h3>TWKSDK.Share.screenshot()</h3>
             <p>Share a screenshot of the current screen.</p>
             <div class="code-block">
-              <button class="copy-btn" (click)="copyCode('code-share-1', $event)" [class.copied]="isCopied('code-share-1')">
+              <button class="copy-btn" (click)="copyCode('code-share-1', $event)"
+                [class.copied]="isCopied('code-share-1')">
                 <span *ngIf="!isCopied('code-share-1')">Copy</span>
                 <span *ngIf="isCopied('code-share-1')">Copied!</span>
               </button>
@@ -481,7 +505,8 @@ if (result.success) &#123;
             <h3>TWKSDK.Share.base64Content()</h3>
             <p>Share base64-encoded content with specified mime type.</p>
             <div class="code-block">
-              <button class="copy-btn" (click)="copyCode('code-share-2', $event)" [class.copied]="isCopied('code-share-2')">
+              <button class="copy-btn" (click)="copyCode('code-share-2', $event)"
+                [class.copied]="isCopied('code-share-2')">
                 <span *ngIf="!isCopied('code-share-2')">Copy</span>
                 <span *ngIf="isCopied('code-share-2')">Copied!</span>
               </button>
@@ -503,7 +528,8 @@ if (result.success) &#123;
             <h3>TWKSDK.Navigation.openScreen()</h3>
             <p>Open a specific screen in the TWK app.</p>
             <div class="code-block">
-              <button class="copy-btn" (click)="copyCode('code-navigation-1', $event)" [class.copied]="isCopied('code-navigation-1')">
+              <button class="copy-btn" (click)="copyCode('code-navigation-1', $event)"
+                [class.copied]="isCopied('code-navigation-1')">
                 <span *ngIf="!isCopied('code-navigation-1')">Copy</span>
                 <span *ngIf="isCopied('code-navigation-1')">Copied!</span>
               </button>
@@ -515,7 +541,8 @@ if (result.success) &#123;
             <h3>TWKSDK.Navigation.openService()</h3>
             <p>Open a specific service by its ID.</p>
             <div class="code-block">
-              <button class="copy-btn" (click)="copyCode('code-navigation-2', $event)" [class.copied]="isCopied('code-navigation-2')">
+              <button class="copy-btn" (click)="copyCode('code-navigation-2', $event)"
+                [class.copied]="isCopied('code-navigation-2')">
                 <span *ngIf="!isCopied('code-navigation-2')">Copy</span>
                 <span *ngIf="isCopied('code-navigation-2')">Copied!</span>
               </button>
@@ -533,7 +560,8 @@ if (result.success) &#123;
             <h3>TWKSDK.Scanner.scanCode()</h3>
             <p>Scan a QR code or barcode.</p>
             <div class="code-block">
-              <button class="copy-btn" (click)="copyCode('code-scanner-1', $event)" [class.copied]="isCopied('code-scanner-1')">
+              <button class="copy-btn" (click)="copyCode('code-scanner-1', $event)"
+                [class.copied]="isCopied('code-scanner-1')">
                 <span *ngIf="!isCopied('code-scanner-1')">Copy</span>
                 <span *ngIf="isCopied('code-scanner-1')">Copied!</span>
               </button>
@@ -554,7 +582,8 @@ if (result.success) &#123;
             <h3>TWKSDK.Cards.create()</h3>
             <p>Create a new card.</p>
             <div class="code-block">
-              <button class="copy-btn" (click)="copyCode('code-cards-1', $event)" [class.copied]="isCopied('code-cards-1')">
+              <button class="copy-btn" (click)="copyCode('code-cards-1', $event)"
+                [class.copied]="isCopied('code-cards-1')">
                 <span *ngIf="!isCopied('code-cards-1')">Copy</span>
                 <span *ngIf="isCopied('code-cards-1')">Copied!</span>
               </button>
@@ -584,7 +613,8 @@ if (result.success) &#123;
             <h3>TWKSDK.Payment.configure()</h3>
             <p>Configure payment callback URLs and page names.</p>
             <div class="code-block">
-              <button class="copy-btn" (click)="copyCode('code-payment-1', $event)" [class.copied]="isCopied('code-payment-1')">
+              <button class="copy-btn" (click)="copyCode('code-payment-1', $event)"
+                [class.copied]="isCopied('code-payment-1')">
                 <span *ngIf="!isCopied('code-payment-1')">Copy</span>
                 <span *ngIf="isCopied('code-payment-1')">Copied!</span>
               </button>
@@ -607,7 +637,8 @@ if (result.success) &#123;
             <h3>TWKSDK.isAvailable()</h3>
             <p>Check if the TWK bridge is available.</p>
             <div class="code-block">
-              <button class="copy-btn" (click)="copyCode('code-utility-1', $event)" [class.copied]="isCopied('code-utility-1')">
+              <button class="copy-btn" (click)="copyCode('code-utility-1', $event)"
+                [class.copied]="isCopied('code-utility-1')">
                 <span *ngIf="!isCopied('code-utility-1')">Copy</span>
                 <span *ngIf="isCopied('code-utility-1')">Copied!</span>
               </button>
@@ -621,7 +652,8 @@ if (result.success) &#123;
             <h3>TWKSDK.getVersion()</h3>
             <p>Get the current SDK version.</p>
             <div class="code-block">
-              <button class="copy-btn" (click)="copyCode('code-utility-2', $event)" [class.copied]="isCopied('code-utility-2')">
+              <button class="copy-btn" (click)="copyCode('code-utility-2', $event)"
+                [class.copied]="isCopied('code-utility-2')">
                 <span *ngIf="!isCopied('code-utility-2')">Copy</span>
                 <span *ngIf="isCopied('code-utility-2')">Copied!</span>
               </button>
@@ -634,7 +666,8 @@ console.log('SDK Version:', version);</code></pre>
             <h3>TWKSDK.getAvailableMethods()</h3>
             <p>Get information about available TWK methods.</p>
             <div class="code-block">
-              <button class="copy-btn" (click)="copyCode('code-utility-3', $event)" [class.copied]="isCopied('code-utility-3')">
+              <button class="copy-btn" (click)="copyCode('code-utility-3', $event)"
+                [class.copied]="isCopied('code-utility-3')">
                 <span *ngIf="!isCopied('code-utility-3')">Copy</span>
                 <span *ngIf="isCopied('code-utility-3')">Copied!</span>
               </button>
@@ -648,14 +681,18 @@ console.log('V2 Methods:', methods.v2);</code></pre>
         <!-- Convenience Methods -->
         <section id="convenience" class="docs-section">
           <h2>Convenience Methods Summary</h2>
-          <p>The SDK provides direct access methods for commonly used functions. These are shortcuts to the most frequently accessed APIs.</p>
+          <p>The SDK provides direct access methods for commonly used functions. These are shortcuts to the most
+            frequently accessed APIs.</p>
 
           <div class="api-list">
             <h3>Available Convenience Methods</h3>
             <ul>
-              <li><code>TWKSDK.getDeviceInfo()</code> - Direct access to device information (alias for Device.getInfo())</li>
-              <li><code>TWKSDK.getAppearance()</code> - Direct access to appearance mode (alias for Device.getAppearance())</li>
-              <li><code>TWKSDK.getUserFullName()</code> - Direct access to user's full name (alias for User.getFullName())</li>
+              <li><code>TWKSDK.getDeviceInfo()</code> - Direct access to device information (alias for Device.getInfo())
+              </li>
+              <li><code>TWKSDK.getAppearance()</code> - Direct access to appearance mode (alias for
+                Device.getAppearance())</li>
+              <li><code>TWKSDK.getUserFullName()</code> - Direct access to user's full name (alias for
+                User.getFullName())</li>
             </ul>
           </div>
 
@@ -663,7 +700,8 @@ console.log('V2 Methods:', methods.v2);</code></pre>
             <h3>Quick Start Example</h3>
             <p>Use convenience methods for rapid development:</p>
             <div class="code-block">
-              <button class="copy-btn" (click)="copyCode('code-convenience', $event)" [class.copied]="isCopied('code-convenience')">
+              <button class="copy-btn" (click)="copyCode('code-convenience', $event)"
+                [class.copied]="isCopied('code-convenience')">
                 <span *ngIf="!isCopied('code-convenience')">Copy</span>
                 <span *ngIf="isCopied('code-convenience')">Copied!</span>
               </button>
@@ -687,4 +725,3 @@ console.log(`Dark mode: $&#123;isDark&#125;`);</code></pre>
     </div>
   </div>
 </div>
-

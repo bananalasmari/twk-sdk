@@ -131,6 +131,17 @@
   }
 
   @media (max-width: 768px) {
+    padding: 1.5rem 0;
+
+    .header-content {
+      flex-wrap: wrap;
+      gap: 1rem;
+    }
+
+    .brand-group {
+      gap: 0.75rem;
+    }
+
     .main-title {
       font-size: 1.25rem;
     }
@@ -142,13 +153,28 @@
     .brand-logo {
       height: 45px;
     }
+
+    .header-nav {
+      margin-inline-start: 0;
+      width: 100%;
+      order: 3;
+      justify-content: center;
+    }
+
+    .lang-toggle {
+      margin-inline-start: auto;
+    }
   }
 
   @media (max-width: 576px) {
+    padding: 1rem 0;
+
     .header-content {
-      flex-direction: row;
-      align-items: center;
-      flex-wrap: wrap;
+      gap: 0.75rem;
+    }
+
+    .brand-group {
+      gap: 0.5rem;
     }
 
     .main-title {
@@ -160,7 +186,28 @@
     }
 
     .brand-logo {
-      height: 40px;
+      height: 35px;
+
+      &.elm-logo {
+        max-width: 120px;
+      }
+    }
+
+    .header-nav {
+      gap: 0.5rem;
+      padding-top: 0.5rem;
+
+      a {
+        font-size: 0.85rem;
+        padding: 0.4rem 0.7rem;
+      }
+    }
+
+    .lang-toggle {
+      .lang-btn {
+        font-size: 0.75rem;
+        padding: 0.2rem 0.6rem;
+      }
     }
   }
 }

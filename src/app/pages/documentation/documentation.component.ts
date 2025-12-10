@@ -9,7 +9,8 @@ import { Component, OnInit } from '@angular/core';
 export class DocumentationComponent implements OnInit {
   activeSection: string = 'getting-started';
   copiedStates: { [key: string]: boolean } = {};
-  
+  mobileMenuOpen: boolean = false;
+
   sections = [
     { id: 'getting-started', title: 'Getting Started' },
     { id: 'device', title: 'Device APIs' },
@@ -30,7 +31,7 @@ export class DocumentationComponent implements OnInit {
     { id: 'convenience', title: 'Convenience Methods' }
   ];
 
-  constructor() {}
+  constructor() { }
 
   ngOnInit(): void {
     // Documentation component initialized
@@ -38,23 +39,28 @@ export class DocumentationComponent implements OnInit {
 
   scrollToSection(sectionId: string): void {
     this.activeSection = sectionId;
+    this.mobileMenuOpen = false; // Close mobile menu when clicking a section
     const element = document.getElementById(sectionId);
     if (element) {
       element.scrollIntoView({ behavior: 'smooth', block: 'start' });
     }
   }
 
+  toggleMobileMenu(): void {
+    this.mobileMenuOpen = !this.mobileMenuOpen;
+  }
+
   async copyCode(codeId: string, event: Event): Promise<void> {
     event.preventDefault();
     const codeElement = document.getElementById(codeId);
-    
+
     if (codeElement) {
       const codeText = codeElement.textContent || '';
-      
+
       try {
         await navigator.clipboard.writeText(codeText);
         this.copiedStates[codeId] = true;
-        
+
         // Reset the copied state after 2 seconds
         setTimeout(() => {
           this.copiedStates[codeId] = false;
