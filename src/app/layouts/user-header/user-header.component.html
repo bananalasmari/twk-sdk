@@ -1,14 +1,21 @@
 <header class="twk-header">
   <div class="container header-content">
     <div class="brand-group">
-      <img src="assets/images/elmlogoWhite.svg" alt="ELM" class="brand-logo elm-logo" />
-      <!-- <span class="divider"></span> -->
-      <!-- <img src="assets/images/twk-arabic.svg" alt="Tawakkalna" class="brand-logo twk-logo" /> -->
+      <a href="/"><img src="assets/images/elmlogoWhite.svg" alt="ELM" class="brand-logo elm-logo" /></a>
+      <span class="divider"></span>
+      <a href="/"><div class="titles">
+        <h1 class="main-title">Tawakkalna SDK</h1>
+      </div></a>
     </div>
 
-    <div class="titles">
-      <h1 class="main-title">Tawakkalna SDK</h1>
-    </div>
+    <nav class="header-nav">
+      <a routerLink="/" routerLinkActive="active" [routerLinkActiveOptions]="{exact: true}">
+        {{ 'header_nav_home' | translate }}
+      </a>
+      <a routerLink="/documentation" routerLinkActive="active">
+        {{ 'header_nav_documentation' | translate }}
+      </a>
+    </nav>
 
     <div class="lang-toggle" aria-label="Language">
       <button

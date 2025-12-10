@@ -1,4 +1,4 @@
-export interface TwkSdkInitOptions {
+export interface TWKSDKInitOptions {
   apiBase: string;
   sharedSecret: string;
   enableLog?: boolean;
@@ -19,12 +19,12 @@ declare global {
  * This can be used from any TypeScript / JavaScript host (Angular or non‑Angular)
  * to talk to the TWK web‑view in a typed, Promise‑based way.
  */
-export class TwkSdk {
+export class TWKSDK {
   /**
    * Configure base URL and security parameters used by the underlying TWK helper.
    * Call this once during application startup (before the first TWK call).
    */
-  static init(options: TwkSdkInitOptions): void {
+  static init(options: TWKSDKInitOptions): void {
     window.TWKAPIBASE = options.apiBase;
     window.SHAREDSECRET = options.sharedSecret;
     window.ENABLELOG = options.enableLog ?? false;

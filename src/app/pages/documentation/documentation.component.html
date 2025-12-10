@@ -1,0 +1,690 @@
+<div class="documentation-page mt-5" style="direction: ltr;">
+  <div class="container">
+    <div class="docs-layout">
+      <!-- Sidebar Navigation -->
+      <aside class="docs-sidebar">
+        <nav class="docs-nav">
+          <h3>{{ 'documentation_nav_title' | translate }}</h3>
+          <ul class="nav-list">
+            <li *ngFor="let section of sections">
+              <a
+                [class.active]="activeSection === section.id"
+                (click)="scrollToSection(section.id)"
+              >
+                {{ section.title }}
+              </a>
+            </li>
+          </ul>
+        </nav>
+      </aside>
+
+      <!-- Main Content -->
+      <main class="docs-content">
+        <!-- Getting Started -->
+        <section id="getting-started" class="docs-section">
+          <h1>{{ 'documentation_title' | translate }}</h1>
+          <p class="lead">
+            {{ 'documentation_intro' | translate }}
+          </p>
+
+  
+
+          <h2>{{ 'documentation_installation_title' | translate }}</h2>
+          <div class="code-block">
+            <button class="copy-btn" (click)="copyCode('code-init', $event)" [class.copied]="isCopied('code-init')">
+              <span *ngIf="!isCopied('code-init')">Copy</span>
+              <span *ngIf="isCopied('code-init')">Copied!</span>
+            </button>
+            <pre><code id="code-init">// {{ 'documentation_installation_step1' | translate }}
+import &#123; TWKSDK &#125; from './sdk/twk-sdk';
+
+// {{ 'documentation_installation_step2' | translate }}
+TWKSDK.init(&#123;
+  apiBase: 'https://api.twk.example.com',
+  sharedSecret: 'your-secret-key',
+  enableLog: true
+&#125;);</code></pre>
+          </div>
+
+          <h2>Two Ways to Access APIs</h2>
+          <p>The SDK provides two flexible ways to access its functionality:</p>
+
+          <div class="api-card">
+            <h3>Method 1: Direct Access (Convenience)</h3>
+            <p>Use direct methods for quick access to commonly used functions:</p>
+            <div class="code-block">
+              <button class="copy-btn" (click)="copyCode('code-direct', $event)" [class.copied]="isCopied('code-direct')">
+                <span *ngIf="!isCopied('code-direct')">Copy</span>
+                <span *ngIf="isCopied('code-direct')">Copied!</span>
+              </button>
+              <pre><code id="code-direct">// Direct access to common methods
+const deviceInfo = await TWKSDK.getDeviceInfo();
+const appearance = await TWKSDK.getAppearance();
+const userName = await TWKSDK.getUserFullName();</code></pre>
+            </div>
+          </div>
+
+          <div class="api-card">
+            <h3>Method 2: Organized by Category</h3>
+            <p>Use categorized namespaces for organized access to all features:</p>
+            <div class="code-block">
+              <button class="copy-btn" (click)="copyCode('code-organized', $event)" [class.copied]="isCopied('code-organized')">
+                <span *ngIf="!isCopied('code-organized')">Copy</span>
+                <span *ngIf="isCopied('code-organized')">Copied!</span>
+              </button>
+              <pre><code id="code-organized">// Organized by category
+const deviceInfo = await TWKSDK.Device.getInfo();
+const appearance = await TWKSDK.Device.getAppearance();
+const userName = await TWKSDK.User.getFullName();
+
+// Access to all specialized features
+const photo = await TWKSDK.Camera.takePhoto();
+const location = await TWKSDK.Permissions.requestLocation();
+const vehicles = await TWKSDK.Vehicles.getList();</code></pre>
+            </div>
+          </div>
+
+          <div class="docs-section">
+            <h3>{{ 'sdk_landing_appearance_title' | translate }}</h3>
+            <p>{{ 'sdk_landing_appearance_body_1' | translate }}</p>
+            <p>{{ 'sdk_landing_appearance_body_2' | translate }}</p>
+          </div>
+
+          <div class="docs-section">
+            <h3>{{ 'sdk_landing_keys_title' | translate }}</h3>
+            <p>{{ 'sdk_landing_keys_body' | translate }}</p>
+            <ul>
+              <li><code>TWK.getUserFullName()</code> – used to display the signed‑in user.</li>
+              <li><code>TWK.getDeviceInfo()</code> – used for dark / light appearance.</li>
+            </ul>
+            <p>
+              You can extend this Angular SDK by injecting your own services that wrap these calls,
+              or by adding new pages that consume the same helpers.
+            </p>
+          </div>
+        </section>
+
+        <!-- Device APIs -->
+        <section id="device" class="docs-section">
+          <h2>Device APIs</h2>
+          <p>Access device information including appearance mode, language, and system capabilities.</p>
+
+          <div class="api-card">
+            <h3>TWKSDK.Device.getInfo() or TWKSDK.getDeviceInfo()</h3>
+            <p>Get comprehensive device information including appearance mode and language.</p>
+            <div class="code-block">
+              <button class="copy-btn" (click)="copyCode('code-device-1', $event)" [class.copied]="isCopied('code-device-1')">
+                <span *ngIf="!isCopied('code-device-1')">Copy</span>
+                <span *ngIf="isCopied('code-device-1')">Copied!</span>
+              </button>
+              <pre><code id="code-device-1">// Organized access
+const info = await TWKSDK.Device.getInfo();
+
+// Or direct access
+const info = await TWKSDK.getDeviceInfo();
+
+console.log(`Appearance: $&#123;info.result.appearance&#125;, Language: $&#123;info.result.language&#125;`);</code></pre>
+            </div>
+          </div>
+
+          <div class="api-card">
+            <h3>TWKSDK.Device.getAppearance() or TWKSDK.getAppearance()</h3>
+            <p>Get the device appearance mode. Returns 1 for light mode, 2 for dark mode.</p>
+            <div class="code-block">
+              <button class="copy-btn" (click)="copyCode('code-device-2', $event)" [class.copied]="isCopied('code-device-2')">
+                <span *ngIf="!isCopied('code-device-2')">Copy</span>
+                <span *ngIf="isCopied('code-device-2')">Copied!</span>
+              </button>
+              <pre><code id="code-device-2">// Organized access
+const appearance = await TWKSDK.Device.getAppearance();
+
+// Or direct access (convenience)
+const appearance = await TWKSDK.getAppearance();
+
+const isDark = appearance === 2;</code></pre>
+            </div>
+          </div>
+
+          <div class="api-card">
+            <h3>TWKSDK.Device.isDarkMode()</h3>
+            <p>Check if device is in dark mode.</p>
+            <div class="code-block">
+              <button class="copy-btn" (click)="copyCode('code-device-3', $event)" [class.copied]="isCopied('code-device-3')">
+                <span *ngIf="!isCopied('code-device-3')">Copy</span>
+                <span *ngIf="isCopied('code-device-3')">Copied!</span>
+              </button>
+              <pre><code id="code-device-3">const isDark = await TWKSDK.Device.isDarkMode();
+if (isDark) &#123;
+  // Apply dark theme
+&#125;</code></pre>
+            </div>
+          </div>
+
+          <div class="api-card">
+            <h3>TWKSDK.Device.getLanguage()</h3>
+            <p>Get the device language preference (e.g., 'en', 'ar').</p>
+            <div class="code-block">
+              <button class="copy-btn" (click)="copyCode('code-device-4', $event)" [class.copied]="isCopied('code-device-4')">
+                <span *ngIf="!isCopied('code-device-4')">Copy</span>
+                <span *ngIf="isCopied('code-device-4')">Copied!</span>
+              </button>
+              <pre><code id="code-device-4">const language = await TWKSDK.Device.getLanguage();</code></pre>
+            </div>
+          </div>
+        </section>
+
+        <!-- User APIs -->
+        <section id="user" class="docs-section">
+          <h2>User APIs</h2>
+          <p>Access user profile data and personal information.</p>
+
+          <div class="api-card">
+            <h3>TWKSDK.User.getFullName() or TWKSDK.getUserFullName()</h3>
+            <p>Get the user's full name (automatically uses V2 endpoint when available).</p>
+            <div class="code-block">
+              <button class="copy-btn" (click)="copyCode('code-user-1', $event)" [class.copied]="isCopied('code-user-1')">
+                <span *ngIf="!isCopied('code-user-1')">Copy</span>
+                <span *ngIf="isCopied('code-user-1')">Copied!</span>
+              </button>
+              <pre><code id="code-user-1">// Organized access
+const name = await TWKSDK.User.getFullName();
+
+// Or direct access (convenience)
+const name = await TWKSDK.getUserFullName();
+
+if (name) &#123;
+  console.log(`Welcome, $&#123;name&#125;!`);
+&#125;</code></pre>
+            </div>
+          </div>
+
+          <div class="api-list">
+            <h3>Available User Methods</h3>
+            <ul>
+              <li><code>getId()</code> - Get user's unique identifier</li>
+              <li><code>getType()</code> - Get user's account type</li>
+              <li><code>getBirthDate()</code> - Get user's birth date</li>
+              <li><code>getMobileNumber()</code> - Get user's mobile number</li>
+              <li><code>getGender()</code> - Get user's gender</li>
+              <li><code>getLocation()</code> - Get user's current location coordinates</li>
+              <li><code>getNationality()</code> - Get user's nationality name</li>
+              <li><code>getNationalityISO()</code> - Get user's nationality ISO code</li>
+              <li><code>getMaritalStatus()</code> - Get user's marital status</li>
+              <li><code>getHealthStatus()</code> - Get user's health status</li>
+              <li><code>getDisabilityType()</code> - Get user's disability type (if applicable)</li>
+              <li><code>getBloodType()</code> - Get user's blood type</li>
+              <li><code>getNationalAddress()</code> - Get user's national address</li>
+              <li><code>getDegreeType()</code> - Get user's educational degree type</li>
+              <li><code>getOccupation()</code> - Get user's occupation</li>
+              <li><code>getProfilePhoto()</code> - Get user's profile photo</li>
+              <li><code>getImage(nationalId)</code> - Get image for a specific national ID</li>
+            </ul>
+          </div>
+        </section>
+
+        <!-- Family APIs -->
+        <section id="family" class="docs-section">
+          <h2>Family APIs</h2>
+          <p>Access family members and sponsored individuals with optional filtering.</p>
+
+          <div class="api-card">
+            <h3>TWKSDK.Family.getMembers(options?)</h3>
+            <p>Get list of family members with optional age and gender filters.</p>
+            <div class="code-block">
+              <button class="copy-btn" (click)="copyCode('code-family-1', $event)" [class.copied]="isCopied('code-family-1')">
+                <span *ngIf="!isCopied('code-family-1')">Copy</span>
+                <span *ngIf="isCopied('code-family-1')">Copied!</span>
+              </button>
+              <pre><code id="code-family-1">// Get all family members
+const allMembers = await TWKSDK.Family.getMembers();
+
+// Get children between 5-18
+const children = await TWKSDK.Family.getMembers(&#123; minAge: 5, maxAge: 18 &#125;);
+
+// Get female family members
+const females = await TWKSDK.Family.getMembers(&#123; gender: 'female' &#125;);</code></pre>
+            </div>
+          </div>
+
+          <div class="api-card">
+            <h3>TWKSDK.Family.getSponsors(options?)</h3>
+            <p>Get list of sponsored individuals with optional filters.</p>
+            <div class="code-block">
+              <button class="copy-btn" (click)="copyCode('code-family-2', $event)" [class.copied]="isCopied('code-family-2')">
+                <span *ngIf="!isCopied('code-family-2')">Copy</span>
+                <span *ngIf="isCopied('code-family-2')">Copied!</span>
+              </button>
+              <pre><code id="code-family-2">const sponsors = await TWKSDK.Family.getSponsors(&#123; minAge: 18, maxAge: 60 &#125;);</code></pre>
+            </div>
+          </div>
+        </section>
+
+        <!-- Vehicles APIs -->
+        <section id="vehicles" class="docs-section">
+          <h2>Vehicles APIs</h2>
+          <p>Manage vehicles and traffic violations.</p>
+
+          <div class="api-card">
+            <h3>TWKSDK.Vehicles.getList()</h3>
+            <p>Get list of vehicles registered to the user.</p>
+            <div class="code-block">
+              <button class="copy-btn" (click)="copyCode('code-vehicles-1', $event)" [class.copied]="isCopied('code-vehicles-1')">
+                <span *ngIf="!isCopied('code-vehicles-1')">Copy</span>
+                <span *ngIf="isCopied('code-vehicles-1')">Copied!</span>
+              </button>
+              <pre><code id="code-vehicles-1">const vehicles = await TWKSDK.Vehicles.getList();</code></pre>
+            </div>
+          </div>
+
+          <div class="api-card">
+            <h3>TWKSDK.Vehicles.getAllViolations()</h3>
+            <p>Get all violations (both paid and unpaid).</p>
+            <div class="code-block">
+              <button class="copy-btn" (click)="copyCode('code-vehicles-2', $event)" [class.copied]="isCopied('code-vehicles-2')">
+                <span *ngIf="!isCopied('code-vehicles-2')">Copy</span>
+                <span *ngIf="isCopied('code-vehicles-2')">Copied!</span>
+              </button>
+              <pre><code id="code-vehicles-2">const &#123; paid, unpaid &#125; = await TWKSDK.Vehicles.getAllViolations();
+console.log(`Unpaid violations: $&#123;unpaid.result.length&#125;`);</code></pre>
+            </div>
+          </div>
+
+          <div class="api-list">
+            <ul>
+              <li><code>getUnpaidViolations()</code> - Get unpaid traffic violations</li>
+              <li><code>getPaidViolations()</code> - Get paid traffic violations</li>
+            </ul>
+          </div>
+        </section>
+
+        <!-- Gallery APIs -->
+        <section id="gallery" class="docs-section">
+          <h2>Gallery APIs</h2>
+          <p>Access photos and videos from the device gallery.</p>
+
+          <div class="api-card">
+            <h3>TWKSDK.Gallery.pickImage()</h3>
+            <p>Pick a single image from the gallery.</p>
+            <div class="code-block">
+              <button class="copy-btn" (click)="copyCode('code-gallery-1', $event)" [class.copied]="isCopied('code-gallery-1')">
+                <span *ngIf="!isCopied('code-gallery-1')">Copy</span>
+                <span *ngIf="isCopied('code-gallery-1')">Copied!</span>
+              </button>
+              <pre><code id="code-gallery-1">const image = await TWKSDK.Gallery.pickImage();
+if (image.success) &#123;
+  console.log('Image selected:', image.result);
+&#125;</code></pre>
+            </div>
+          </div>
+
+          <div class="api-list">
+            <ul>
+              <li><code>pickImages()</code> - Pick multiple images</li>
+              <li><code>pickVideo()</code> - Pick a single video</li>
+              <li><code>pickVideos()</code> - Pick multiple videos</li>
+              <li><code>getRawData(fileName)</code> - Get raw file data</li>
+            </ul>
+          </div>
+        </section>
+
+        <!-- Camera APIs -->
+        <section id="camera" class="docs-section">
+          <h2>Camera APIs</h2>
+          <p>Capture photos and videos using the device camera.</p>
+
+          <div class="api-card">
+            <h3>TWKSDK.Camera.takePhoto()</h3>
+            <p>Take a photo using the device camera.</p>
+            <div class="code-block">
+              <button class="copy-btn" (click)="copyCode('code-camera-1', $event)" [class.copied]="isCopied('code-camera-1')">
+                <span *ngIf="!isCopied('code-camera-1')">Copy</span>
+                <span *ngIf="isCopied('code-camera-1')">Copied!</span>
+              </button>
+              <pre><code id="code-camera-1">const photo = await TWKSDK.Camera.takePhoto();
+if (photo.success) &#123;
+  console.log('Photo captured:', photo.result);
+&#125;</code></pre>
+            </div>
+          </div>
+
+          <div class="api-card">
+            <h3>TWKSDK.Camera.recordVideo()</h3>
+            <p>Record a video using the device camera.</p>
+            <div class="code-block">
+              <button class="copy-btn" (click)="copyCode('code-camera-2', $event)" [class.copied]="isCopied('code-camera-2')">
+                <span *ngIf="!isCopied('code-camera-2')">Copy</span>
+                <span *ngIf="isCopied('code-camera-2')">Copied!</span>
+              </button>
+              <pre><code id="code-camera-2">const video = await TWKSDK.Camera.recordVideo();</code></pre>
+            </div>
+          </div>
+        </section>
+
+        <!-- Files APIs -->
+        <section id="files" class="docs-section">
+          <h2>Files APIs</h2>
+          <p>Pick and manage files with base64 encoding support.</p>
+
+          <div class="api-card">
+            <h3>TWKSDK.Files.pickFileBase64()</h3>
+            <p>Pick a file and get its content as base64.</p>
+            <div class="code-block">
+              <button class="copy-btn" (click)="copyCode('code-files-1', $event)" [class.copied]="isCopied('code-files-1')">
+                <span *ngIf="!isCopied('code-files-1')">Copy</span>
+                <span *ngIf="isCopied('code-files-1')">Copied!</span>
+              </button>
+              <pre><code id="code-files-1">const file = await TWKSDK.Files.pickFileBase64();
+if (file.success) &#123;
+  const &#123; mime_type, data &#125; = file.result;
+  // Use the base64 data
+&#125;</code></pre>
+            </div>
+          </div>
+
+          <div class="api-card">
+            <h3>TWKSDK.Files.pickFile()</h3>
+            <p>Pick a file and get its ID.</p>
+            <div class="code-block">
+              <button class="copy-btn" (click)="copyCode('code-files-2', $event)" [class.copied]="isCopied('code-files-2')">
+                <span *ngIf="!isCopied('code-files-2')">Copy</span>
+                <span *ngIf="isCopied('code-files-2')">Copied!</span>
+              </button>
+              <pre><code id="code-files-2">const file = await TWKSDK.Files.pickFile();</code></pre>
+            </div>
+          </div>
+        </section>
+
+        <!-- Permissions APIs -->
+        <section id="permissions" class="docs-section">
+          <h2>Permissions APIs</h2>
+          <p>Request device permissions from the user.</p>
+
+          <div class="api-card">
+            <h3>TWKSDK.Permissions.requestAll()</h3>
+            <p>Request all common permissions at once.</p>
+            <div class="code-block">
+              <button class="copy-btn" (click)="copyCode('code-permissions-1', $event)" [class.copied]="isCopied('code-permissions-1')">
+                <span *ngIf="!isCopied('code-permissions-1')">Copy</span>
+                <span *ngIf="isCopied('code-permissions-1')">Copied!</span>
+              </button>
+              <pre><code id="code-permissions-1">const perms = await TWKSDK.Permissions.requestAll();
+console.log('Location:', perms.location.success);
+console.log('Camera:', perms.camera.success);
+console.log('Gallery:', perms.gallery.success);
+console.log('Notifications:', perms.pushNotification.success);</code></pre>
+            </div>
+          </div>
+
+          <div class="api-list">
+            <h3>Individual Permission Methods</h3>
+            <ul>
+              <li><code>requestLocation()</code> - Request location permission</li>
+              <li><code>requestPreciseLocation()</code> - Request precise location permission</li>
+              <li><code>requestCamera()</code> - Request camera permission</li>
+              <li><code>requestGallery()</code> - Request gallery permission</li>
+              <li><code>requestPushNotification()</code> - Request push notification permission</li>
+            </ul>
+          </div>
+        </section>
+
+        <!-- Authentication APIs -->
+        <section id="auth" class="docs-section">
+          <h2>Authentication APIs</h2>
+          <p>Authentication and security features.</p>
+
+          <div class="api-card">
+            <h3>TWKSDK.Auth.authenticateBiometric()</h3>
+            <p>Authenticate user using biometric (fingerprint/face recognition).</p>
+            <div class="code-block">
+              <button class="copy-btn" (click)="copyCode('code-auth-1', $event)" [class.copied]="isCopied('code-auth-1')">
+                <span *ngIf="!isCopied('code-auth-1')">Copy</span>
+                <span *ngIf="isCopied('code-auth-1')">Copied!</span>
+              </button>
+              <pre><code id="code-auth-1">const result = await TWKSDK.Auth.authenticateBiometric();
+if (result.success) &#123;
+  console.log('Biometric authentication successful');
+&#125;</code></pre>
+            </div>
+          </div>
+
+          <div class="api-card">
+            <h3>TWKSDK.Auth.generateToken()</h3>
+            <p>Generate an authentication token (uses V2 endpoint when available).</p>
+            <div class="code-block">
+              <button class="copy-btn" (click)="copyCode('code-auth-2', $event)" [class.copied]="isCopied('code-auth-2')">
+                <span *ngIf="!isCopied('code-auth-2')">Copy</span>
+                <span *ngIf="isCopied('code-auth-2')">Copied!</span>
+              </button>
+              <pre><code id="code-auth-2">const token = await TWKSDK.Auth.generateToken();</code></pre>
+            </div>
+          </div>
+        </section>
+
+        <!-- Share APIs -->
+        <section id="share" class="docs-section">
+          <h2>Share APIs</h2>
+          <p>Share content and screenshots.</p>
+
+          <div class="api-card">
+            <h3>TWKSDK.Share.screenshot()</h3>
+            <p>Share a screenshot of the current screen.</p>
+            <div class="code-block">
+              <button class="copy-btn" (click)="copyCode('code-share-1', $event)" [class.copied]="isCopied('code-share-1')">
+                <span *ngIf="!isCopied('code-share-1')">Copy</span>
+                <span *ngIf="isCopied('code-share-1')">Copied!</span>
+              </button>
+              <pre><code id="code-share-1">await TWKSDK.Share.screenshot();</code></pre>
+            </div>
+          </div>
+
+          <div class="api-card">
+            <h3>TWKSDK.Share.base64Content()</h3>
+            <p>Share base64-encoded content with specified mime type.</p>
+            <div class="code-block">
+              <button class="copy-btn" (click)="copyCode('code-share-2', $event)" [class.copied]="isCopied('code-share-2')">
+                <span *ngIf="!isCopied('code-share-2')">Copy</span>
+                <span *ngIf="isCopied('code-share-2')">Copied!</span>
+              </button>
+              <pre><code id="code-share-2">await TWKSDK.Share.base64Content(
+  'document.pdf',
+  base64Data,
+  'application/pdf'
+);</code></pre>
+            </div>
+          </div>
+        </section>
+
+        <!-- Navigation APIs -->
+        <section id="navigation" class="docs-section">
+          <h2>Navigation APIs</h2>
+          <p>Navigate to different screens and services in the TWK app.</p>
+
+          <div class="api-card">
+            <h3>TWKSDK.Navigation.openScreen()</h3>
+            <p>Open a specific screen in the TWK app.</p>
+            <div class="code-block">
+              <button class="copy-btn" (click)="copyCode('code-navigation-1', $event)" [class.copied]="isCopied('code-navigation-1')">
+                <span *ngIf="!isCopied('code-navigation-1')">Copy</span>
+                <span *ngIf="isCopied('code-navigation-1')">Copied!</span>
+              </button>
+              <pre><code id="code-navigation-1">await TWKSDK.Navigation.openScreen('profile', &#123; userId: '123' &#125;);</code></pre>
+            </div>
+          </div>
+
+          <div class="api-card">
+            <h3>TWKSDK.Navigation.openService()</h3>
+            <p>Open a specific service by its ID.</p>
+            <div class="code-block">
+              <button class="copy-btn" (click)="copyCode('code-navigation-2', $event)" [class.copied]="isCopied('code-navigation-2')">
+                <span *ngIf="!isCopied('code-navigation-2')">Copy</span>
+                <span *ngIf="isCopied('code-navigation-2')">Copied!</span>
+              </button>
+              <pre><code id="code-navigation-2">await TWKSDK.Navigation.openService('service-id', &#123; param: 'value' &#125;);</code></pre>
+            </div>
+          </div>
+        </section>
+
+        <!-- Scanner APIs -->
+        <section id="scanner" class="docs-section">
+          <h2>Scanner APIs</h2>
+          <p>Scan QR codes and barcodes.</p>
+
+          <div class="api-card">
+            <h3>TWKSDK.Scanner.scanCode()</h3>
+            <p>Scan a QR code or barcode.</p>
+            <div class="code-block">
+              <button class="copy-btn" (click)="copyCode('code-scanner-1', $event)" [class.copied]="isCopied('code-scanner-1')">
+                <span *ngIf="!isCopied('code-scanner-1')">Copy</span>
+                <span *ngIf="isCopied('code-scanner-1')">Copied!</span>
+              </button>
+              <pre><code id="code-scanner-1">const result = await TWKSDK.Scanner.scanCode();
+if (result.success) &#123;
+  console.log('Scanned:', result.result);
+&#125;</code></pre>
+            </div>
+          </div>
+        </section>
+
+        <!-- Cards APIs -->
+        <section id="cards" class="docs-section">
+          <h2>Cards APIs</h2>
+          <p>Manage TWK cards with CRUD operations.</p>
+
+          <div class="api-card">
+            <h3>TWKSDK.Cards.create()</h3>
+            <p>Create a new card.</p>
+            <div class="code-block">
+              <button class="copy-btn" (click)="copyCode('code-cards-1', $event)" [class.copied]="isCopied('code-cards-1')">
+                <span *ngIf="!isCopied('code-cards-1')">Copy</span>
+                <span *ngIf="isCopied('code-cards-1')">Copied!</span>
+              </button>
+              <pre><code id="code-cards-1">await TWKSDK.Cards.create(&#123;
+  title: 'New Card',
+  description: 'Card description',
+  data: &#123; key: 'value' &#125;
+&#125;);</code></pre>
+            </div>
+          </div>
+
+          <div class="api-list">
+            <ul>
+              <li><code>post(actionType, payload)</code> - Post a card action</li>
+              <li><code>update(payload)</code> - Update an existing card</li>
+              <li><code>delete(payload)</code> - Delete a card</li>
+            </ul>
+          </div>
+        </section>
+
+        <!-- Payment APIs -->
+        <section id="payment" class="docs-section">
+          <h2>Payment APIs</h2>
+          <p>Configure payment callback URLs and page names.</p>
+
+          <div class="api-card">
+            <h3>TWKSDK.Payment.configure()</h3>
+            <p>Configure payment callback URLs and page names.</p>
+            <div class="code-block">
+              <button class="copy-btn" (click)="copyCode('code-payment-1', $event)" [class.copied]="isCopied('code-payment-1')">
+                <span *ngIf="!isCopied('code-payment-1')">Copy</span>
+                <span *ngIf="isCopied('code-payment-1')">Copied!</span>
+              </button>
+              <pre><code id="code-payment-1">TWKSDK.Payment.configure(&#123;
+  callbackSuccessUrlList: ['https://example.com/success'],
+  callbackFailureUrlList: ['https://example.com/failure'],
+  successPageName: 'Payment Success',
+  failurePageName: 'Payment Failed'
+&#125;);</code></pre>
+            </div>
+          </div>
+        </section>
+
+        <!-- Utility Methods -->
+        <section id="utility" class="docs-section">
+          <h2>Utility Methods</h2>
+          <p>Additional helper methods for SDK management.</p>
+
+          <div class="api-card">
+            <h3>TWKSDK.isAvailable()</h3>
+            <p>Check if the TWK bridge is available.</p>
+            <div class="code-block">
+              <button class="copy-btn" (click)="copyCode('code-utility-1', $event)" [class.copied]="isCopied('code-utility-1')">
+                <span *ngIf="!isCopied('code-utility-1')">Copy</span>
+                <span *ngIf="isCopied('code-utility-1')">Copied!</span>
+              </button>
+              <pre><code id="code-utility-1">if (TWKSDK.isAvailable()) &#123;
+  // TWK bridge is ready
+&#125;</code></pre>
+            </div>
+          </div>
+
+          <div class="api-card">
+            <h3>TWKSDK.getVersion()</h3>
+            <p>Get the current SDK version.</p>
+            <div class="code-block">
+              <button class="copy-btn" (click)="copyCode('code-utility-2', $event)" [class.copied]="isCopied('code-utility-2')">
+                <span *ngIf="!isCopied('code-utility-2')">Copy</span>
+                <span *ngIf="isCopied('code-utility-2')">Copied!</span>
+              </button>
+              <pre><code id="code-utility-2">const version = TWKSDK.getVersion();
+console.log('SDK Version:', version);</code></pre>
+            </div>
+          </div>
+
+          <div class="api-card">
+            <h3>TWKSDK.getAvailableMethods()</h3>
+            <p>Get information about available TWK methods.</p>
+            <div class="code-block">
+              <button class="copy-btn" (click)="copyCode('code-utility-3', $event)" [class.copied]="isCopied('code-utility-3')">
+                <span *ngIf="!isCopied('code-utility-3')">Copy</span>
+                <span *ngIf="isCopied('code-utility-3')">Copied!</span>
+              </button>
+              <pre><code id="code-utility-3">const methods = TWKSDK.getAvailableMethods();
+console.log('V1 Methods:', methods.v1);
+console.log('V2 Methods:', methods.v2);</code></pre>
+            </div>
+          </div>
+        </section>
+
+        <!-- Convenience Methods -->
+        <section id="convenience" class="docs-section">
+          <h2>Convenience Methods Summary</h2>
+          <p>The SDK provides direct access methods for commonly used functions. These are shortcuts to the most frequently accessed APIs.</p>
+
+          <div class="api-list">
+            <h3>Available Convenience Methods</h3>
+            <ul>
+              <li><code>TWKSDK.getDeviceInfo()</code> - Direct access to device information (alias for Device.getInfo())</li>
+              <li><code>TWKSDK.getAppearance()</code> - Direct access to appearance mode (alias for Device.getAppearance())</li>
+              <li><code>TWKSDK.getUserFullName()</code> - Direct access to user's full name (alias for User.getFullName())</li>
+            </ul>
+          </div>
+
+          <div class="api-card">
+            <h3>Quick Start Example</h3>
+            <p>Use convenience methods for rapid development:</p>
+            <div class="code-block">
+              <button class="copy-btn" (click)="copyCode('code-convenience', $event)" [class.copied]="isCopied('code-convenience')">
+                <span *ngIf="!isCopied('code-convenience')">Copy</span>
+                <span *ngIf="isCopied('code-convenience')">Copied!</span>
+              </button>
+              <pre><code id="code-convenience">// Initialize SDK
+TWKSDK.init(&#123;
+  apiBase: 'https://api.example.com',
+  sharedSecret: 'secret',
+  enableLog: true
+&#125;);
+
+// Quick access to common features
+const userName = await TWKSDK.getUserFullName();
+const isDark = await TWKSDK.getAppearance() === 2;
+
+console.log(`Hello $&#123;userName&#125;!`);
+console.log(`Dark mode: $&#123;isDark&#125;`);</code></pre>
+            </div>
+          </div>
+        </section>
+      </main>
+    </div>
+  </div>
+</div>
+

@@ -17,6 +17,7 @@ import { HomeComponent } from './pages/home/home.component';
 import { ViewCardsButtonComponent } from './pages/home/view-cards-button/view-cards-button.component';
 import { CardViewComponent } from './pages/home/card-view/card-view.component';
 import { DocuemntsListComponent } from './pages/docuemnts-list/docuemnts-list.component';
+import { DocumentationComponent } from './pages/documentation/documentation.component';
 import { QrCodeComponent } from '../app/_shared/components/qr-code/qr-code.component';
 import { LandingComponent } from './pages/landing/landing.component';
 import { CommonModule } from '@angular/common';
@@ -33,6 +34,7 @@ export function HttpLoaderFactory(http: HttpClient) {
     UserHeaderComponent,
     HomeComponent,
     LandingComponent,
+    DocumentationComponent,
     ViewCardsButtonComponent,
     CardViewComponent,
     DocuemntsListComponent,

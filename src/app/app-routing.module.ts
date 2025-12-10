@@ -2,6 +2,7 @@ import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
 import { HomeComponent } from './pages/home/home.component';
 import { LandingComponent } from './pages/landing/landing.component';
+import { DocumentationComponent } from './pages/documentation/documentation.component';
 import { InnerLayoutsComponent } from './layouts/inner-layouts/inner-layouts.component';
 import { OuterLayoutsComponent } from './layouts/outer-layouts/outer-layouts.component';
 import { DocuemntsListComponent } from './pages/docuemnts-list/docuemnts-list.component';
@@ -11,7 +12,8 @@ const routes: Routes = [
     component: OuterLayoutsComponent,
     children: [
       { path: '', component: LandingComponent },
-      { path: 'home', component: HomeComponent }
+      { path: 'home', component: HomeComponent },
+      { path: 'documentation', component: DocumentationComponent }
     ]
   },
   {

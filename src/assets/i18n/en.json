@@ -121,7 +121,7 @@
     "sdk_landing_quick_step_1": "Clone or download the SDK repository from Bitbucket.",
     "sdk_landing_quick_step_2": "Copy twk-sdk.ts into your project source, and place twkhelper.js where it can be served as a static asset.",
     "sdk_landing_quick_step_3": "In your HTML host page, set TWKAPIBASE, SHAREDSECRET, and ENABLELOG before loading twkhelper.js.",
-    "sdk_landing_quick_step_4": "Import TwkSdk, call TwkSdk.init(...) once at startup, then call SDK methods such as getDeviceInfo or getUserFullName.",
+    "sdk_landing_quick_step_4": "Import TWKSDK, call TWKSDK.init(...) once at startup, then call SDK methods such as getDeviceInfo or getUserFullName.",
 
     "sdk_landing_docs_title": "SDK documentation",
     "sdk_landing_env_title": "Environment & configuration",
@@ -130,12 +130,31 @@
     "sdk_landing_appearance_body_1": "The sample Angular integration shows how to read appearance and language from TWK.getDeviceInfo() and apply dark or light themes automatically.",
     "sdk_landing_appearance_body_2": "You can reuse this pattern in your own UI, or keep the SDK purely as a backend integration layer without any visual changes.",
     "sdk_landing_keys_title": "Key TWK helpers",
-    "sdk_landing_keys_body": "The TWK bridge exposes multiple helpers that you can call directly or through the TwkSdk wrapper, depending on how much control you need.",
+    "sdk_landing_keys_body": "The TWK bridge exposes multiple helpers that you can call directly or through the TWKSDK wrapper, depending on how much control you need.",
 
     "sdk_landing_why_title": "Why this SDK for Tawakkalna mini-apps?",
     "sdk_landing_why_body_1": "Tawakkalna offers many services as mini-apps. The TWK SDK gives you a consistent, secure way to build those services without re-implementing the bridge logic in every project.",
     "sdk_landing_why_body_2": "By standardising the Web–TWK integration, ELM developers can focus on the business flows and UI while the SDK handles signatures, headers, and device capabilities.",
 
-    "sdk_landing_copy_button": "Copy snippet",
-    "sdk_landing_copy_done": "Snippet copied to clipboard"
-  }
+  "sdk_landing_copy_button": "Copy snippet",
+  "sdk_landing_copy_done": "Snippet copied to clipboard",
+
+  "header_nav_home": "Home",
+  "header_nav_documentation": "Documentation",
+
+  "documentation_nav_title": "Contents",
+  "documentation_title": "TWK SDK Documentation",
+  "documentation_intro": "Complete reference guide for the TWK SDK - a next-generation TypeScript SDK for seamless integration with the TWK Platform.",
+
+  "documentation_features_title": "Features",
+  "documentation_feature_1": "Full TypeScript support with strict typing",
+  "documentation_feature_2": "Organized API methods by category",
+  "documentation_feature_3": "Built-in error handling and validation",
+  "documentation_feature_4": "Promise-based async API",
+  "documentation_feature_5": "Comprehensive JSDoc documentation",
+  "documentation_feature_6": "Support for both V1 and V2 endpoints",
+
+  "documentation_installation_title": "Installation & Setup",
+  "documentation_installation_step1": "Import the SDK",
+  "documentation_installation_step2": "Initialize the SDK with your configuration"
+}

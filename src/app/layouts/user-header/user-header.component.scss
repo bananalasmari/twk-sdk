@@ -1,5 +1,5 @@
 .twk-header {
-  padding: 2rem 0 0.9rem 0;
+  padding: 2rem 0 2rem 0;
   color: #ffffff;
 
   .header-content {
@@ -31,23 +31,74 @@
 
   .divider {
     width: 1px;
-    height: 28px;
-    background: rgba(255, 255, 255, 0.25);
+    height: 40px;
+    background: rgba(255, 255, 255, 0.3);
+    display: block;
   }
 
   .titles {
-    margin-inline-start: auto;
+    display: inline-flex;
+    align-items: center;
   }
 
   .main-title {
     margin: 0;
-    font-size: 2rem;
+    font-size: 1.75rem;
     font-weight: 700;
     /* gradient between the two requested colors: #763CBC and #FF5D36 */
     background:  #FF5D36;
     -webkit-background-clip: text;
     background-clip: text;
     color: transparent;
+    white-space: nowrap;
+  }
+
+  .header-nav {
+    display: flex;
+    align-items: center;
+    gap: 1.5rem;
+    margin-inline-start: 2rem;
+
+    @media (max-width: 768px) {
+      gap: 1rem;
+      margin-inline-start: 1rem;
+    }
+
+    a {
+      color: white;
+      text-decoration: none;
+      font-size: 1rem;
+      font-weight: 500;
+      padding: 0.5rem 1rem;
+      border-radius: 8px;
+      transition: all 0.2s ease;
+      position: relative;
+
+      &:hover {
+        background: rgba(255, 255, 255, 0.1);
+      }
+
+      &.active {
+        background: rgba(255, 255, 255, 0.2);
+        font-weight: 600;
+
+        &::after {
+          content: '';
+          position: absolute;
+          bottom: 0;
+          left: 50%;
+          transform: translateX(-50%);
+          width: 30px;
+          height: 2px;
+          background: white;
+        }
+      }
+
+      @media (max-width: 576px) {
+        font-size: 0.85rem;
+        padding: 0.4rem 0.7rem;
+      }
+    }
   }
 
   .lang-toggle {
@@ -79,14 +130,37 @@
     }
   }
 
+  @media (max-width: 768px) {
+    .main-title {
+      font-size: 1.25rem;
+    }
+
+    .divider {
+      height: 30px;
+    }
+
+    .brand-logo {
+      height: 45px;
+    }
+  }
+
   @media (max-width: 576px) {
     .header-content {
       flex-direction: row;
       align-items: center;
+      flex-wrap: wrap;
     }
 
     .main-title {
       font-size: 1rem;
+    }
+
+    .divider {
+      height: 25px;
+    }
+
+    .brand-logo {
+      height: 40px;
     }
   }
 }
