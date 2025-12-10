@@ -1,4 +1,5 @@
-import { Injectable } from '@angular/core';
+import { Inject, Injectable, PLATFORM_ID } from '@angular/core';
+import { isPlatformBrowser } from '@angular/common';
 import { BehaviorSubject } from 'rxjs/internal/BehaviorSubject';
 
 @Injectable({
@@ -8,8 +9,10 @@ export class ThemeService {
   private isDarkModeSubject = new BehaviorSubject<boolean>(false);
   isDarkMode$ = this.isDarkModeSubject.asObservable();
 
-  constructor() {
-    this.initializeTheme();
+  constructor(@Inject(PLATFORM_ID) private platformId: Object) {
+    if (isPlatformBrowser(this.platformId)) {
+      this.initializeTheme();
+    }
   }
   
   private async initializeTheme(): Promise<void> {
@@ -35,15 +38,21 @@ export class ThemeService {
   }
 
   private applyTheme(isDarkMode: boolean): void {
-    if (isDarkMode) {
-      document.body.classList.add('dark-mode');
-    } else {
-      document.body.classList.remove('dark-mode');
+    if (isPlatformBrowser(this.platformId)) {
+      if (isDarkMode) {
+        document.body.classList.add('dark-mode');
+      } else {
+        document.body.classList.remove('dark-mode');
+      }
     }
   }
 
 
   getAppearance(): Promise<number> {
+    if (!isPlatformBrowser(this.platformId)) {
+      return Promise.resolve(1); // Return light mode as default for SSR
+    }
+    
     if (typeof TWK === 'undefined' || typeof TWK.getDeviceInfo !== 'function') {
       console.error('TWK is not defined or getDeviceInfo method is missing.');
       return Promise.reject(new Error('TWK is not available.'));

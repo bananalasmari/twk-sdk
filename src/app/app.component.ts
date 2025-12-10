@@ -1,6 +1,4 @@
 import { Component, OnInit, Renderer2 } from '@angular/core';
-import { ThemeService } from './_shared/services/theme.service';
-import { DeviceLanguageService } from './_shared/services/device-language.service';
 import { TranslateService } from '@ngx-translate/core';
 import { Inject, PLATFORM_ID } from '@angular/core';
 import { isPlatformBrowser } from '@angular/common';
@@ -19,9 +17,7 @@ export class AppComponent implements OnInit {
   currentYear: number = new Date().getFullYear();
 
   constructor(
-    private themeService: ThemeService,
     private translate: TranslateService,
-    private deviceLanguageService: DeviceLanguageService,
     private renderer: Renderer2,
     private http: HttpClient,
     @Inject(PLATFORM_ID) private platformId: Object
@@ -32,8 +28,6 @@ export class AppComponent implements OnInit {
 
   async ngOnInit(): Promise<void> {
     try {
-      const language = await this.deviceLanguageService.getDeviceInfo();
-      this.currentLanguage = language;
       this.translate.use(this.currentLanguage); // Apply detected language
       this.setDirection(this.currentLanguage); // Set direction based on language
     } catch (error) {

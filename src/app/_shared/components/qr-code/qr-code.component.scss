@@ -1,7 +1,7 @@
-#qr-code {
-  position: relative;
-  margin: 0 auto;
-  canvas {
-    width: 100px !important;
-  }
+.qr-code-container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding: 20px;
 }
+

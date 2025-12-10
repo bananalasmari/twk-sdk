@@ -1,14 +1,17 @@
-import { Injectable} from '@angular/core';
-
-
+import { Inject, Injectable, PLATFORM_ID } from '@angular/core';
+import { isPlatformBrowser } from '@angular/common';
 
 @Injectable({
   providedIn: 'root',
 })
 export class DeviceLanguageService {
-  constructor() {}
+  constructor(@Inject(PLATFORM_ID) private platformId: Object) {}
 
   async getDeviceInfo(): Promise<any> {
+    if (!isPlatformBrowser(this.platformId)) {
+      return 'ar'; // Return default language for SSR
+    }
+    
     try {
       const ret = await TWK.getDeviceInfo();
       if (ret.success) {
