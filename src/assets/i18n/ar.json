@@ -1,45 +1,38 @@
 {
   "sdk_landing_title": "حزمة TWK SDK",
   "sdk_landing_subtitle": "ابدأ رحلة دمج تطبيقك بتوكلنا. حمّل TWK SDK واستفد من أسهل طريقة لإطلاق خدماتك",
+  "sdk_landing_version_badge": "الإصدار",
   "sdk_landing_cta_open_repo": "ابدأ التطوير",
   "sdk_landing_cta_docs": "شوف دليل الربط",
-
   "sdk_landing_what_is_title": "إيش هي حزمة TWK SDK؟",
   "sdk_landing_what_is_body": "ملف TypeScript خفيف + طبقة JavaScript تخلي تطبيقك يتواصل مع TWK بشكل آمن وسهل.",
   "sdk_landing_what_is_item_1": "دوال جاهزة لمعلومات الجهاز وبيانات المستخدم، بدون ما تكتب كل شي من الصفر.",
   "sdk_landing_what_is_item_2": "توقيع HMAC SHA-256 ينحسب تلقائياً مع كل استدعاء من التطبيق.",
   "sdk_landing_what_is_item_3": "كل اللي عليك تضبط TWKAPIBASE و SHAREDSECRET و ENABLELOG في صفحة الاستضافة قبل ما تبدأ.",
   "sdk_landing_what_is_item_4": "يشتغل مع أي إطار تحبه: Angular، React، Vue أو حتى JavaScript عادي.",
-
   "sdk_landing_quick_title": "كيف تبدأ بسرعة؟",
   "sdk_landing_quick_step_1": "استنسخ مستودع SDK من Bitbucket أو نزّله كملف مضغوط.",
   "sdk_landing_quick_step_2": "انسخ twk-sdk.ts داخل كود مشروعك، وحط twkhelper.js في مجلد assets أو أي مجلد للملفات الثابتة.",
   "sdk_landing_quick_step_3": "في صفحة HTML، عرّف المتغيرات TWKAPIBASE و SHAREDSECRET و ENABLELOG قبل ما تحمّل ملف twkhelper.js.",
   "sdk_landing_quick_step_4": "استورد TWKSDK، ونادي TWKSDK.init(...) مرة وحدة عند تشغيل التطبيق، وبعدها استخدم الدوال مثل getDeviceInfo و getUserFullName.",
-
   "sdk_landing_docs_title": "دليل الحزمة",
   "sdk_landing_env_title": "الإعدادات وبيئة العمل",
   "sdk_landing_env_body": "",
-
   "sdk_landing_appearance_title": "Appearance & dark mode",
   "sdk_landing_appearance_body_1": "The sample Angular integration shows how to read appearance and language from TWK.getDeviceInfo() and apply dark or light themes automatically.",
   "sdk_landing_appearance_body_2": "You can reuse this pattern in your own UI, or keep the SDK purely as a backend integration layer without any visual changes.",
   "sdk_landing_keys_title": "Key TWK helpers",
   "sdk_landing_keys_body": "The TWK bridge exposes multiple helpers that you can call directly or through the TWKSDK wrapper, depending on how much control you need.",
-
   "sdk_landing_why_title": "ليش نحتاج هذي الحزمة لخدمات توكلنا؟",
   "sdk_landing_why_body_1": "خدمات توكلنا هي تطبيقات مصغّرة (Mini-Apps) تشتغل داخل تطبيق توكلنا بدون ما تكون تطبيق مستقل. كل خدمة لها واجهاتها وبياناتها، لكنها تعتمد على هوية المستخدم وقنوات الأمان الخاصة بتوكلنا.",
   "sdk_landing_why_body_2": "حزمة TWK SDK توفر طريقة موحّدة وآمنة لبناء هذي الخدمات المصغّرة، بحيث المطور ما يحتاج يعيد بناء التكامل مع توكلنا في كل خدمة. يقدر يركز بس على منطق الخدمة وتصميم تجربة المستخدم.",
-
   "sdk_landing_copy_button": "انسخ الكود",
   "sdk_landing_copy_done": "تم النسخ",
-
   "header_nav_home": "الرئيسية",
   "header_nav_documentation": "التوثيق",
   "documentation_nav_title": "Contents",
   "documentation_title": "TWK SDK Documentation",
   "documentation_intro": "Complete reference guide for the TWK SDK - a next-generation TypeScript SDK for seamless integration with the TWK Platform.",
-
   "documentation_features_title": "المميزات",
   "documentation_feature_1": "دعم كامل لـ TypeScript مع أنواع بيانات واضحة",
   "documentation_feature_2": "دوال API منظمة ومرتبة حسب النوع",
@@ -51,5 +44,3 @@
   "documentation_installation_step1": "Import the SDK",
   "documentation_installation_step2": "Initialize the SDK with your configuration"
 }
-
-
