@@ -114,13 +114,13 @@
     "sdk_landing_what_is_body": "The TWK SDK is a small TypeScript wrapper and JavaScript bridge that securely connects your web application to the TWK native layer.",
     "sdk_landing_what_is_item_1": "Typed helper methods for common TWK capabilities (device info, user data, and more).",
     "sdk_landing_what_is_item_2": "Built-in HMAC signing and hashing for every request made from the web app to TWK.",
-    "sdk_landing_what_is_item_3": "Simple configuration using TWKAPIBASE, SHAREDSECRET, and ENABLELOG on the host page.",
+    "sdk_landing_what_is_item_3": "Simple configuration using TWKAPIBASE, and ENABLELOG on the host page.",
     "sdk_landing_what_is_item_4": "Framework-agnostic design that works with Angular, React, Vue, or plain JavaScript.",
 
     "sdk_landing_quick_title": "Quick start",
     "sdk_landing_quick_step_1": "Clone or download the SDK repository from Bitbucket.",
     "sdk_landing_quick_step_2": "Copy twk-sdk.ts into your project source, and place twkhelper.js where it can be served as a static asset.",
-    "sdk_landing_quick_step_3": "In your HTML host page, set TWKAPIBASE, SHAREDSECRET, and ENABLELOG before loading twkhelper.js.",
+    "sdk_landing_quick_step_3": "In your HTML host page, set TWKAPIBASE, and ENABLELOG before loading twkhelper.js.",
     "sdk_landing_quick_step_4": "Import TWKSDK, call TWKSDK.init(...) once at startup, then call SDK methods such as getDeviceInfo or getUserFullName.",
 
     "sdk_landing_docs_title": "SDK documentation",
