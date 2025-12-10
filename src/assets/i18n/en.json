@@ -103,5 +103,39 @@
   "truck_back_distance": "Truck Rear Distance (m)",
   "proposed_route_distance": "Proposed Route Distance (m)",
   "truck_axles_count": "Truck Axles Count",
-  "goods_type": "Goods Type"
+    "goods_type": "Goods Type",
+
+    "sdk_landing_title": "TWK Web SDK",
+    "sdk_landing_subtitle": "Clone the TWK SDK, plug it into your web app, and start integrating with the TWK bridge in just a few steps.",
+    "sdk_landing_cta_open_repo": "Open SDK repository",
+    "sdk_landing_cta_docs": "Read integration guide",
+
+    "sdk_landing_what_is_title": "What is the TWK SDK?",
+    "sdk_landing_what_is_body": "The TWK SDK is a small TypeScript wrapper and JavaScript bridge that securely connects your web application to the TWK native layer.",
+    "sdk_landing_what_is_item_1": "Typed helper methods for common TWK capabilities (device info, user data, and more).",
+    "sdk_landing_what_is_item_2": "Built-in HMAC signing and hashing for every request made from the web app to TWK.",
+    "sdk_landing_what_is_item_3": "Simple configuration using TWKAPIBASE, SHAREDSECRET, and ENABLELOG on the host page.",
+    "sdk_landing_what_is_item_4": "Framework-agnostic design that works with Angular, React, Vue, or plain JavaScript.",
+
+    "sdk_landing_quick_title": "Quick start",
+    "sdk_landing_quick_step_1": "Clone or download the SDK repository from Bitbucket.",
+    "sdk_landing_quick_step_2": "Copy twk-sdk.ts into your project source, and place twkhelper.js where it can be served as a static asset.",
+    "sdk_landing_quick_step_3": "In your HTML host page, set TWKAPIBASE, SHAREDSECRET, and ENABLELOG before loading twkhelper.js.",
+    "sdk_landing_quick_step_4": "Import TwkSdk, call TwkSdk.init(...) once at startup, then call SDK methods such as getDeviceInfo or getUserFullName.",
+
+    "sdk_landing_docs_title": "SDK documentation",
+    "sdk_landing_env_title": "Environment & configuration",
+    "sdk_landing_env_body": "Your host application controls the API base URL and shared secret used to sign every request. Configure these globals before loading twkhelper.js so that all TWK calls are authenticated.",
+    "sdk_landing_appearance_title": "Appearance & dark mode",
+    "sdk_landing_appearance_body_1": "The sample Angular integration shows how to read appearance and language from TWK.getDeviceInfo() and apply dark or light themes automatically.",
+    "sdk_landing_appearance_body_2": "You can reuse this pattern in your own UI, or keep the SDK purely as a backend integration layer without any visual changes.",
+    "sdk_landing_keys_title": "Key TWK helpers",
+    "sdk_landing_keys_body": "The TWK bridge exposes multiple helpers that you can call directly or through the TwkSdk wrapper, depending on how much control you need.",
+
+    "sdk_landing_why_title": "Why this SDK for Tawakkalna mini-apps?",
+    "sdk_landing_why_body_1": "Tawakkalna offers many services as mini-apps. The TWK SDK gives you a consistent, secure way to build those services without re-implementing the bridge logic in every project.",
+    "sdk_landing_why_body_2": "By standardising the Web–TWK integration, ELM developers can focus on the business flows and UI while the SDK handles signatures, headers, and device capabilities.",
+
+    "sdk_landing_copy_button": "Copy snippet",
+    "sdk_landing_copy_done": "Snippet copied to clipboard"
   }

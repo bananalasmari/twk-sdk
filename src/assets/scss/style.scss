@@ -12,7 +12,7 @@ $extra-bold: 'Cairo-Bold';
 $success: #30E0A1 ;
 
 :root[dir="rtl"] {
-  // text-align: right;
+  text-align: right;
   /* Add any additional RTL-specific styles here */
 }
 
@@ -91,5 +91,4 @@ $success: #30E0A1 ;
 
 @import './_media-queries'; // empty media queries 
  
-
- 
+@import './fonts';

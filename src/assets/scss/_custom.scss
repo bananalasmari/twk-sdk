@@ -10,6 +10,10 @@
    ========================================================================== */
 header {
 }
+ul {
+    padding-left: 0;
+    line-height: 2;
+}
 
 .cards-layout {
     .main-card {
@@ -334,4 +338,9 @@ header {
         width: 24px; // Adjusts the width
         height: 24px; // Adjusts the height
       }
+}
+
+code {
+    font-size: .875em;
+    color: #ff5d36;
 }

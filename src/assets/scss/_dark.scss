@@ -36,12 +36,12 @@ body.dark-mode {
 
 /* Light mode (default) */
 body {
-      background: radial-gradient(circle at 10% 0, rgb(95 25 8 / 38%), transparent 55%), radial-gradient(circle at 90% 100%, rgb(47 7 82), transparent 55%), linear-gradient(140deg, #051d49 0%, #000 40%, #000000 70%, #6e150000 100%)  ;    color: #3f4358;
+      background: radial-gradient(circle at 10% 0, rgba(95, 25, 8, 0.38), #00000075 55%), radial-gradient(circle at 90% 100%, rgb(23, 8, 39), transparent 55%), linear-gradient(140deg, #051D49 0%, #000000 40%, #051D49 70%, rgba(110, 21, 0, 0) 100%);
 }
 
 /* Dark mode styles */
 body.dark-mode {
-     background: radial-gradient(circle at 10% 0, rgba(255, 93, 54, 0.38), transparent 55%), radial-gradient(circle at 90% 100%, rgba(90, 44, 131, 0.55), transparent 55%), linear-gradient(140deg, #051d49 0%, #000 40%, #5a2c83 70%, #ff5d36 100%);
+      background: radial-gradient(circle at 10% 0, rgba(95, 25, 8, 0.38), #00000075 55%), radial-gradient(circle at 90% 100%, rgb(23, 8, 39), transparent 55%), linear-gradient(140deg, #051D49 0%, #000000 40%, #051D49 70%, rgba(110, 21, 0, 0) 100%);
       color: #fff;
       .card {
             border: 1px solid #41465d !important;

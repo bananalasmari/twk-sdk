@@ -2,14 +2,22 @@
   <div class="content container">
     <div class="hero">
       <div class="hero-text">
-        <h1>TWK Integration SDK</h1>
+        <h1>{{ 'sdk_landing_title' | translate }}</h1>
         <p class="subtitle">
-          A ready‑to‑use Angular experience to integrate TWK capabilities (user data, theming,
-          media, and more) into your services with a secure, mobile‑friendly UI.
+          {{ 'sdk_landing_subtitle' | translate }}
         </p>
         <div class="hero-actions">
-          <a class="btn btn-primary" href="#quick-start">Get Started</a>
-          <a class="btn btn-outline-light" href="#documentation">View Documentation</a>
+          <a
+            class="btn btn-primary"
+            href="https://bitbucket.elm.sa/users/baalasmari/repos/twk-sdk/browse"
+            target="_blank"
+            rel="noopener noreferrer"
+          >
+            {{ 'sdk_landing_cta_open_repo' | translate }}
+          </a>
+          <a class="btn btn-outline-light" href="#documentation">
+            {{ 'sdk_landing_cta_docs' | translate }}
+          </a>
         </div>
       </div>
       <div class="hero-image">
@@ -17,45 +25,68 @@
       </div>
     </div>
 
+    <section class="why-sdk">
+      <div class="card dark-card why-card">
+        <div class="row">
+        <div class="col-md-8">
+        <div class="why-header">
+          <h2>{{ 'sdk_landing_why_title' | translate }}</h2>
+        </div>
+        <p>{{ 'sdk_landing_why_body_1' | translate }}</p>
+        <p>{{ 'sdk_landing_why_body_2' | translate }}</p>
+        </div>
+        <div class="col-md-4">
+          <img src="assets/images/twk-arabic.svg" alt="Tawakkalna" class="why-logo text-center my-5 mx-5" />
+        </div>
+      </div>
+    </div>
+
+    </section>
+
     <div class="grid">
       <div class="card dark-card">
-        <h2>What is this SDK?</h2>
+        <h2>{{ 'sdk_landing_what_is_title' | translate }}</h2>
         <p>
-          This project bundles an Angular UI that talks to the TWK native bridge through the
-          global <code>TWK</code> object (defined in <code>assets/js/twkhelper.js</code>).
-          It handles:
+          {{ 'sdk_landing_what_is_body' | translate }}
         </p>
         <ul>
-          <li>Reading user and device information from TWK APIs</li>
-          <li>Auto‑detecting device language and layout direction (LTR / RTL)</li>
-          <li>Applying light / dark appearance using the TWK capabilities endpoint</li>
-          <li>Displaying transport documents and carrier cards in a responsive layout</li>
+          <li>{{ 'sdk_landing_what_is_item_1' | translate }}</li>
+          <li>{{ 'sdk_landing_what_is_item_2' | translate }}</li>
+          <li>{{ 'sdk_landing_what_is_item_3' | translate }}</li>
+          <li>{{ 'sdk_landing_what_is_item_4' | translate }}</li>
         </ul>
       </div>
 
       <div class="card dark-card" id="quick-start">
-        <h2>Quick integration</h2>
+        <h2>{{ 'sdk_landing_quick_title' | translate }}</h2>
         <ol>
-          <li>Host this Angular build in your web container or TWK webview.</li>
-          <li>Include the TWK helper script before the Angular bundle:</li>
+          <li>{{ 'sdk_landing_quick_step_1' | translate }}</li>
+          <li>{{ 'sdk_landing_quick_step_2' | translate }}</li>
         </ol>
-        <pre><code>&lt;script src="assets/js/twkhelper.js"&gt;&lt;/script&gt;
+        <div class="code-snippet mb-4">
+          <pre><code>&lt;script src="assets/js/twkhelper.js"&gt;&lt;/script&gt;
 &lt;script src="main.js" type="module"&gt;&lt;/script&gt;</code></pre>
+          <button type="button" class="btn btn-outline-light btn-sm copy-btn mt-4" (click)="copyInstallSnippet()">
+            {{ 'sdk_landing_copy_button' | translate }}
+          </button>
+          <span *ngIf="copySuccess" class="copy-confirm mt-2">
+            {{ 'sdk_landing_copy_done' | translate }}
+          </span>
+        </div>
         <ol start="3">
-          <li>Configure <code>TWKAPIBASE</code>, <code>SHAREDSECRET</code>, and <code>ENABLELOG</code> in your host.</li>
-          <li>Open this module from your native or web shell as an embedded service.</li>
+          <li>{{ 'sdk_landing_quick_step_3' | translate }}</li>
+          <li>{{ 'sdk_landing_quick_step_4' | translate }}</li>
         </ol>
       </div>
     </div>
 
     <section class="docs" id="documentation">
-      <h2>SDK documentation</h2>
+      <h2>{{ 'sdk_landing_docs_title' | translate }}</h2>
 
       <div class="docs-section">
-        <h3>Environment & configuration</h3>
+        <h3>{{ 'sdk_landing_env_title' | translate }}</h3>
         <p>
-          The SDK expects the following globals to be configured by the host environment
-          <em>before</em> loading <code>assets/js/twkhelper.js</code>:
+          {{ 'sdk_landing_env_body' | translate }}
         </p>
         <ul>
           <li><code>TWKAPIBASE</code> – Base URL for the TWK bridge API.</li>
@@ -65,22 +96,19 @@
       </div>
 
       <div class="docs-section">
-        <h3>Appearance & dark mode</h3>
+        <h3>{{ 'sdk_landing_appearance_title' | translate }}</h3>
         <p>
-          The <code>ThemeService</code> calls <code>TWK.getDeviceInfo()</code> and automatically
-          toggles a <code>dark-mode</code> class on the <code>&lt;body&gt;</code> element.
-          Dark‑theme tokens are defined in <code>assets/scss/_dark.scss</code>.
+          {{ 'sdk_landing_appearance_body_1' | translate }}
         </p>
         <p>
-          The landing page itself uses a fully black background to match a dark introduction
-          experience, while still respecting the global dark‑mode tokens for cards and text.
+          {{ 'sdk_landing_appearance_body_2' | translate }}
         </p>
       </div>
 
       <div class="docs-section">
-        <h3>Key TWK helpers</h3>
+        <h3>{{ 'sdk_landing_keys_title' | translate }}</h3>
         <p>
-          The TWK helper exposes a set of methods on <code>window.TWK</code>, for example:
+          {{ 'sdk_landing_keys_body' | translate }}
         </p>
         <ul>
           <li><code>TWK.getUserFullName()</code> – used to display the signed‑in user.</li>

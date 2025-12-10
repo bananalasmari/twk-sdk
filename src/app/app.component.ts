@@ -16,6 +16,7 @@ import { HttpClient } from '@angular/common/http';
 export class AppComponent implements OnInit {
   title = 'bayan-twk';
   currentLanguage: string = 'ar'; // Default language
+  currentYear: number = new Date().getFullYear();
 
   constructor(
     private themeService: ThemeService,

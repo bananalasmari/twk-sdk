@@ -2,12 +2,31 @@
   <div class="container header-content">
     <div class="brand-group">
       <img src="assets/images/elmlogoWhite.svg" alt="ELM" class="brand-logo elm-logo" />
-      <span class="divider"></span>
-      <img src="assets/images/twk-arabic.svg" alt="Tawakkalna" class="brand-logo twk-logo" />
+      <!-- <span class="divider"></span> -->
+      <!-- <img src="assets/images/twk-arabic.svg" alt="Tawakkalna" class="brand-logo twk-logo" /> -->
     </div>
 
     <div class="titles">
       <h1 class="main-title">Tawakkalna SDK</h1>
+    </div>
+
+    <div class="lang-toggle" aria-label="Language">
+      <button
+        type="button"
+        class="lang-btn"
+        [class.active]="currentLang === 'ar'"
+        (click)="switchLanguage('ar')"
+      >
+        ع
+      </button>
+      <button
+        type="button"
+        class="lang-btn"
+        [class.active]="currentLang === 'en'"
+        (click)="switchLanguage('en')"
+      >
+        EN
+      </button>
     </div>
   </div>
 </header>

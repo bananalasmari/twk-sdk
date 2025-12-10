@@ -5,6 +5,12 @@
  * =============================================================================
  */
 
+ * {
+    box-sizing: border-box;
+    font-family: 'IBMPlexSansArabic', system-ui, -apple-system, "Segoe UI", Roboto, "Helvetica Neue", Arial, "Noto Sans", "Liberation Sans", sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol", "Noto Color Emoji";
+  
+  }
+
 html {
     position: relative;
     min-height: 100%;
@@ -13,66 +19,7 @@ html {
 }
 // Define Cairo font faces
 
-@font-face {
-    font-family: 'Cairo-block';
-    src: url('../fonts/Cairo-Black.ttf') format('truetype');
-    font-weight: 900;
-    font-style: normal;
-  }
-  
-  @font-face {
-    font-family: 'Cairo-ExtraBold';
-    src: url('../fonts/Cairo-ExtraBold.ttf') format('truetype');
-    font-weight: 800;
-    font-style: normal;
-  }
-  
-  @font-face {
-    font-family: 'Cairo-bold';
-    src: url('../fonts/Cairo-Bold.ttf') format('truetype');
-    font-weight: 700;
-    font-style: normal;
-  }
-  
-  @font-face {
-    font-family: 'Cairo-SemiBold';
-    src: url('../fonts/Cairo-SemiBold.ttf') format('truetype');
-    font-weight: 600;
-    font-style: normal;
-  }
-  
-  @font-face {
-    font-family: 'Cairo-Medium';
-    src: url('../fonts/Cairo-Medium.ttf') format('truetype');
-    font-weight: 500;
-    font-style: normal;
-  }
-  
-  @font-face {
-    font-family: 'Cairo';
-    src: url('../fonts/Cairo-Regular.ttf') format('truetype');
-    font-weight: 400;
-    font-style: normal;
-  }
-  
-  @font-face {
-    font-family: 'Cairo-light';
-    src: url('../fonts/Cairo-Light.ttf') format('truetype');
-    font-weight: 300;
-    font-style: normal;
-  }
-  
-  @font-face {
-    font-family: 'Cairo-ExtraLight';
-    src: url('../fonts/Cairo-ExtraLight.ttf') format('truetype');
-    font-weight: 200;
-    font-style: normal;
-  }
-  
-  // Example usage
-  body {
-    font-family: 'Cairo', sans-serif !important;
-  }
+
 
 a,
 input,

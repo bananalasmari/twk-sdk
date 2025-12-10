@@ -1,2 +1,12 @@
 <app-loader></app-loader>
-<router-outlet></router-outlet>
+<div class="app-shell">
+  <router-outlet></router-outlet>
+
+  <footer class="app-footer">
+    <div class="container footer-inner">
+      <small class="footer-text">
+        © {{ currentYear }} Banan Alasmari – for all ELM developers
+      </small>
+    </div>
+  </footer>
+</div>

@@ -5,7 +5,6 @@
   display: flex;
   align-items: flex-start;
   justify-content: center;
-  direction: ltr;
   // background:
   //   radial-gradient(circle at 10% 0, rgba(255, 93, 54, 0.38), transparent 55%),
   //   radial-gradient(circle at 90% 100%, rgba(90, 44, 131, 0.55), transparent 55%),
@@ -25,8 +24,6 @@
     align-items: center;
     justify-content: space-between;
     gap: 3rem;
-    text-align: left;
-
     .hero-text {
       flex: 1 1 0;
     }
@@ -86,6 +83,26 @@
     }
   }
 
+  /* Flip layout automatically when page direction is RTL */
+  [dir='rtl'] & {
+    .hero {
+      flex-direction: row-reverse;
+      text-align: right;
+
+      .hero-image {
+        justify-content: flex-start;
+      }
+
+      .subtitle {
+        margin: 0 0 2rem auto;
+      }
+
+      .hero-actions {
+        justify-content: flex-start;
+      }
+    }
+  }
+
   .grid {
     display: grid;
     grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
@@ -137,6 +154,30 @@
     }
   }
 
+  .code-snippet {
+    margin-top: 0.75rem;
+    display: flex;
+    flex-wrap: wrap;
+    gap: 0.75rem;
+    align-items: stretch;
+
+    pre {
+      flex: 1 1 260px;
+      margin: 0;
+    }
+
+    .copy-btn {
+      align-self: flex-start;
+      font-size: 0.8rem;
+      white-space: nowrap;
+    }
+
+    .copy-confirm {
+      font-size: 0.8rem;
+      color: #8be29b;
+    }
+  }
+
   .docs {
     max-width: 960px;
     margin: 0 auto 1rem auto;
@@ -163,6 +204,37 @@
         padding-left: 1.25rem;
       }
     }
+  }
+
+  .why-sdk {
+    max-width: 1100px;
+    margin: 0 auto 2.5rem auto;
+
+    .why-card {
+      display: flex;
+      flex-direction: column;
+      gap: 0.5rem;
+      border-color: #ff5d36;
+      box-shadow: 0 24px 80px rgba(0, 0, 0, 0.85);
+      background: radial-gradient(circle at top left, rgba(255, 93, 54, 0.25), rgba(5, 3, 11, 0.98));
+    }
+
+    .why-header {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 1rem;
+      margin-bottom: 0.25rem;
+
+      .why-logo {
+        height: 70px;
+        width: auto;
+      }
+    }
+  }
+  .why-logo {
+    height: 100px;
+    width: auto;
   }
 
   @media (max-width: 576px) {
