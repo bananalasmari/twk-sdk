@@ -46,7 +46,10 @@
     font-size: 1.75rem;
     font-weight: 700;
     /* gradient between the two requested colors: #763CBC and #FF5D36 */
-    background:  #FF5D36;
+    background:  linear-gradient(
+      135deg,
+      #d88a77 50%,
+      #ff5d36 100%);
     -webkit-background-clip: text;
     background-clip: text;
     color: transparent;
