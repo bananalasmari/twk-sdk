@@ -112,7 +112,17 @@
     "sdk_landing_cta_docs": "Integration guide",
 
     "sdk_landing_what_is_title": "What is this SDK?",
-    "sdk_landing_what_is_body": "A development package that helps you connect your app to Tawakkalna easily. It gives you ready-made functions you need while building your service, such as device info and user data, and it works with different web technologies.",
+    "sdk_landing_what_is_body": "Tawakkalna SDK is a unified development package that helps teams build and connect their services to Tawakkalna faster and more easily, by providing the shared functions and integrations services need instead of rebuilding them from scratch in every project.",
+    "sdk_landing_why_title": "Why this SDK?",
+    "sdk_landing_why_body": "As more services connect to Tawakkalna, many setup, integration, and technical challenges repeat across projects. This SDK turns past experience into a shared, reusable foundation so every new service benefits from what earlier services already built and learned.",
+    "sdk_landing_offers_title": "What does it offer?",
+    "sdk_landing_offers_body": "The SDK provides a ready foundation for Tawakkalna integration, including user and device data, connection settings, shared functions, and core integration requirements, with future expansion for multiple test environments, payments, and other shared integrations.",
+    "sdk_landing_audience_title": "Who is it for?",
+    "sdk_landing_audience_body": "It serves development teams, product teams, and organizations launching services through Tawakkalna, helping them start from a ready, proven foundation instead of starting from scratch with every service.",
+    "sdk_landing_impact_title": "Target impact",
+    "sdk_landing_impact_body_1": "Our goal is not only less code, but faster delivery of services to Tawakkalna.",
+    "sdk_landing_impact_body_2": "We aim to cut setup and integration time for new services by 50% or more, so a service moves from business readiness to launch readiness on Tawakkalna faster and more consistently.",
+    "sdk_landing_impact_body_3": "Every service we launch today makes the next one faster and easier.",
 
     "sdk_landing_quick_title": "How do I start?",
     "sdk_landing_quick_step_1": "Clone the SDK from Bitbucket, or download it as a zip file.",
@@ -128,10 +138,6 @@
     "sdk_landing_appearance_body_2": "You can use the same approach in your UI, or keep the SDK only for the connection without changing how the app looks.",
     "sdk_landing_keys_title": "Useful Tawakkalna functions",
     "sdk_landing_keys_body": "The Tawakkalna bridge gives you several helpers. Call them directly or through TWKSDK, depending on how much control you need.",
-
-    "sdk_landing_why_title": "Why use this SDK?",
-    "sdk_landing_why_body_1": "Tawakkalna services are small apps that run inside Tawakkalna, not as separate apps. Each service has its own screens and data, and uses Tawakkalna identity and security.",
-    "sdk_landing_why_body_2": "The TWK SDK gives you one safe way to build these services. You do not need to rebuild the Tawakkalna connection in every project. Focus on the service and the user experience. The SDK handles the rest.",
 
   "sdk_landing_copy_button": "Copy code",
   "sdk_landing_copy_done": "Copied",
