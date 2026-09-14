@@ -12,6 +12,7 @@ import { InnerLayoutsComponent } from './layouts/inner-layouts/inner-layouts.com
 import { OuterLayoutsComponent } from './layouts/outer-layouts/outer-layouts.component';
 import { UserHeaderComponent } from './layouts/user-header/user-header.component';
 import { DocumentationComponent } from './pages/documentation/documentation.component';
+import { ComingSoonComponent } from './pages/coming-soon/coming-soon.component';
 import { LandingComponent } from './pages/landing/landing.component';
 import { CommonModule } from '@angular/common';
 
@@ -26,6 +27,7 @@ export function HttpLoaderFactory(http: HttpClient) {
     OuterLayoutsComponent,
     LandingComponent,
     DocumentationComponent,
+    ComingSoonComponent,
   ],
   imports: [
     BrowserModule,

@@ -61,24 +61,6 @@
         <p>
           {{ 'sdk_landing_what_is_body' | translate }}
         </p>
-        <ul class="feature-list">
-          <li>
-            <span class="check-icon">✓</span>
-            {{ 'sdk_landing_what_is_item_1' | translate }}
-          </li>
-          <li>
-            <span class="check-icon">✓</span>
-            {{ 'sdk_landing_what_is_item_2' | translate }}
-          </li>
-          <li>
-            <span class="check-icon">✓</span>
-            {{ 'sdk_landing_what_is_item_3' | translate }}
-          </li>
-          <li>
-            <span class="check-icon">✓</span>
-            {{ 'sdk_landing_what_is_item_4' | translate }}
-          </li>
-        </ul>
       </div>
 
       <div class="glass-card step-card" id="quick-start">
@@ -94,28 +76,47 @@
           </div>
         </div>
 
-        <div class="code-block-wrapper mb-4">
-          <div class="code-header">
-            <span class="dot red"></span>
-            <span class="dot yellow"></span>
-            <span class="dot green"></span>
-          </div>
-          <pre><code>&lt;script src="assets/js/twkhelper.js"&gt;&lt;/script&gt;
-&lt;script src="main.js" type="module"&gt;&lt;/script&gt;</code></pre>
-          <button type="button" class="copy-btn" (click)="copyInstallSnippet()" [class.copied]="copySuccess">
-            <span *ngIf="!copySuccess">{{ 'sdk_landing_copy_button' | translate }}</span>
-            <span *ngIf="copySuccess">{{ 'sdk_landing_copy_done' | translate }}</span>
-          </button>
-        </div>
+        <div class="arch-flow" aria-label="SDK architecture">
+          <p class="arch-flow-title">{{ 'sdk_landing_arch_title' | translate }}</p>
 
-        <div class="steps-wrapper">
-          <div class="step-item">
-            <span class="step-num">03</span>
-            <span class="step-text">{{ 'sdk_landing_quick_step_3' | translate }}</span>
+          <div class="arch-node">
+            <div class="arch-icon arch-icon-site">01</div>
+            <div class="arch-copy">
+              <strong>{{ 'sdk_landing_arch_site' | translate }}</strong>
+              <span>{{ 'sdk_landing_arch_site_sub' | translate }}</span>
+            </div>
           </div>
-          <div class="step-item">
-            <span class="step-num">04</span>
-            <span class="step-text">{{ 'sdk_landing_quick_step_4' | translate }}</span>
+
+          <div class="arch-connector" aria-hidden="true"></div>
+
+          <div class="arch-node">
+            <div class="arch-icon arch-icon-sdk">02</div>
+            <div class="arch-copy">
+              <strong>{{ 'sdk_landing_arch_sdk' | translate }}</strong>
+              <span>{{ 'sdk_landing_arch_sdk_sub' | translate }}</span>
+            </div>
+          </div>
+
+          <div class="arch-connector" aria-hidden="true"></div>
+
+          <div class="arch-node arch-node-accent">
+            <div class="arch-icon arch-icon-lib">03</div>
+            <div class="arch-copy">
+              <strong>{{ 'sdk_landing_arch_helper' | translate }}</strong>
+              <span>{{ 'sdk_landing_arch_helper_sub' | translate }}</span>
+            </div>
+          </div>
+
+          <div class="arch-connector" aria-hidden="true"></div>
+
+          <div class="arch-node">
+            <div class="arch-icon arch-icon-app">
+              <img src="assets/images/twk-arabic.svg" alt="">
+            </div>
+            <div class="arch-copy">
+              <strong>{{ 'sdk_landing_arch_app' | translate }}</strong>
+              <span>{{ 'sdk_landing_arch_app_sub' | translate }}</span>
+            </div>
           </div>
         </div>
       </div>
@@ -134,11 +135,11 @@
           <div class="env-vars">
             <div class="var-item">
               <code>TWKAPIBASE</code>
-              <span>Base URL for the TWK bridge API.</span>
+              <span>{{ 'sdk_landing_env_apibase' | translate }}</span>
             </div>
             <div class="var-item">
               <code>ENABLELOG</code>
-              <span>Optional boolean to enable verbose logging.</span>
+              <span>{{ 'sdk_landing_env_enablelog' | translate }}</span>
             </div>
           </div>
         </div>

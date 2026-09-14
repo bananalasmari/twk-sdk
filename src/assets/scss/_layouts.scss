@@ -14,6 +14,73 @@ body {
   scroll-behavior: smooth;
 }
 
+.loading-div {
+  position: fixed;
+  inset: 0;
+  z-index: 99999;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: 1.25rem;
+  background:
+    radial-gradient(circle at 10% 0, rgba(95, 25, 8, 0.38), #000000 55%),
+    linear-gradient(140deg, #051d49 0%, #000000 40%, #051d49 100%);
+
+  .loading-elm-logo {
+    width: 140px;
+    height: auto;
+  }
+
+  .loading-mark {
+    position: relative;
+    width: 88px;
+    height: 88px;
+  }
+
+  .loading-ring,
+  .loading-ring-soft {
+    position: absolute;
+    inset: 0;
+    border-radius: 50%;
+    border: 3px solid transparent;
+  }
+
+  .loading-ring {
+    border-top-color: #ff5d36;
+    border-right-color: #ff5d36;
+    animation: public-loader-spin 0.85s linear infinite;
+  }
+
+  .loading-ring-soft {
+    inset: 8px;
+    border-bottom-color: #763cbc;
+    border-left-color: rgba(118, 60, 188, 0.35);
+    animation: public-loader-spin 1.25s linear infinite reverse;
+  }
+
+  .loading-logo {
+    position: absolute;
+    inset: 22px;
+    width: 44px;
+    height: 44px;
+    object-fit: contain;
+  }
+
+  &.is-hidden {
+    opacity: 0;
+    visibility: hidden;
+    pointer-events: none;
+    transition: opacity 0.3s ease, visibility 0.3s ease;
+  }
+}
+
+@keyframes public-loader-spin {
+  to {
+    transform: rotate(360deg);
+  }
+}
+
 .wrapper {
   display: flex;
   flex-direction: column;
