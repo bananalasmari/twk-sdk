@@ -360,18 +360,17 @@ $text-muted: rgba(255, 255, 255, 0.7);
     .kpi-card,
     .target-card,
     .strategic-card,
-    .national-card {
-      opacity: 0;
-      transform: translate3d(0, 28px, 0);
+    .national-card,
+    .business-closing {
+      opacity: 1;
+      transform: none;
       transition:
-        opacity 0.65s ease,
-        transform 0.65s ease,
         background 0.3s ease,
-        border-color 0.3s ease;
+        border-color 0.3s ease,
+        box-shadow 0.3s ease;
 
       &.is-visible {
-        opacity: 1;
-        transform: translate3d(0, 0, 0);
+        animation: fadeInUp 0.55s ease both;
       }
     }
 
@@ -661,16 +660,125 @@ $text-muted: rgba(255, 255, 255, 0.7);
     }
 
     .business-closing {
-      margin: 0.5rem 0 0;
-      padding: 1.5rem 1.75rem;
-      border-radius: 24px;
+      position: relative;
+      overflow: hidden;
+      margin: 0.75rem 0 0;
+      padding: 2.1rem 2.5rem;
+      border-radius: 28px;
       text-align: center;
-      font-size: clamp(1.05rem, 2vw, 1.25rem);
-      font-weight: 700;
-      line-height: 1.7;
-      color: #fff;
-      background: linear-gradient(120deg, rgba(255, 93, 54, 0.16), rgba(90, 44, 131, 0.2));
-      border: 1px solid rgba(255, 255, 255, 0.1);
+      isolation: isolate;
+      border: 1px solid rgba(255, 255, 255, 0.14);
+      background:
+        linear-gradient(135deg, rgba(255, 93, 54, 0.22) 0%, rgba(12, 14, 28, 0.88) 38%, rgba(90, 44, 131, 0.28) 100%);
+      box-shadow:
+        0 18px 48px rgba(0, 0, 0, 0.28),
+        inset 0 1px 0 rgba(255, 255, 255, 0.08);
+
+      &::before {
+        content: '';
+        position: absolute;
+        inset: 0 auto 0 0;
+        width: 4px;
+        background: linear-gradient(180deg, #ff5d36, #763cbc, #27c93f);
+        opacity: 0.95;
+      }
+
+      &::after {
+        content: '';
+        position: absolute;
+        inset: 0 0 0 auto;
+        width: 4px;
+        background: linear-gradient(180deg, #27c93f, #763cbc, #ff5d36);
+        opacity: 0.95;
+      }
+
+      .closing-orb {
+        position: absolute;
+        border-radius: 50%;
+        filter: blur(28px);
+        pointer-events: none;
+        z-index: 0;
+      }
+
+      .closing-orb-start {
+        width: 180px;
+        height: 180px;
+        top: -70px;
+        right: -40px;
+        background: rgba(255, 93, 54, 0.35);
+      }
+
+      .closing-orb-end {
+        width: 160px;
+        height: 160px;
+        bottom: -60px;
+        left: -30px;
+        background: rgba(118, 60, 188, 0.35);
+      }
+
+      .closing-quote {
+        position: absolute;
+        top: 0.35rem;
+        right: 1.4rem;
+        z-index: 1;
+        font-size: 3.5rem;
+        line-height: 1;
+        font-weight: 700;
+        color: rgba(255, 255, 255, 0.12);
+        pointer-events: none;
+        user-select: none;
+      }
+
+      .closing-text {
+        position: relative;
+        z-index: 1;
+        margin: 0;
+        font-size: clamp(1.15rem, 2.3vw, 1.45rem);
+        font-weight: 800;
+        line-height: 1.75;
+        letter-spacing: 0.01em;
+        background: linear-gradient(120deg, #ffffff 10%, #ffd0c4 48%, #ffffff 88%);
+        -webkit-background-clip: text;
+        -webkit-text-fill-color: transparent;
+        background-clip: text;
+      }
+
+      .closing-shine {
+        position: absolute;
+        inset: 0;
+        z-index: 0;
+        pointer-events: none;
+        background: linear-gradient(
+          110deg,
+          transparent 35%,
+          rgba(255, 255, 255, 0.08) 48%,
+          transparent 62%
+        );
+        transform: translateX(120%);
+        animation: closing-shine 5.5s ease-in-out infinite;
+      }
+
+      &:hover {
+        border-color: rgba(255, 255, 255, 0.22);
+        transform: translateY(-3px);
+      }
+    }
+
+    @keyframes closing-shine {
+      0%,
+      55% {
+        transform: translateX(120%);
+      }
+      100% {
+        transform: translateX(-120%);
+      }
+    }
+
+    @media (prefers-reduced-motion: reduce) {
+      .business-closing .closing-shine,
+      .national-card .flag-orbit {
+        animation: none;
+      }
     }
 
     @media (max-width: 991px) {
@@ -738,7 +846,12 @@ $text-muted: rgba(255, 255, 255, 0.7);
       }
 
       .business-closing {
-        padding: 1.25rem;
+        padding: 1.6rem 1.35rem;
+
+        .closing-quote {
+          right: 0.85rem;
+          font-size: 2.6rem;
+        }
       }
     }
   }

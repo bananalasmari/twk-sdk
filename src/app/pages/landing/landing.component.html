@@ -135,10 +135,10 @@
               </div>
 
               <div class="national-copy">
-                <span class="national-eyebrow">
+                <!-- <span class="national-eyebrow">
                   <span class="eyebrow-dot" aria-hidden="true"></span>
                   {{ 'sdk_landing_business_national_eyebrow' | translate }}
-                </span>
+                </span> -->
                 <h3>{{ 'sdk_landing_business_national_title' | translate }}</h3>
                 <p>{{ 'sdk_landing_business_national_body' | translate }}</p>
                 <div class="national-accent-line" aria-hidden="true"></div>
@@ -147,17 +147,13 @@
           </article>
         </div>
 
-        <p class="business-closing">{{ 'sdk_landing_business_closing' | translate }}</p>
-      </div>
-    </section>
-
-    <!-- Impact Section -->
-    <section class="impact-sdk">
-      <div class="glass-card feature-highlight">
-        <h2 class="section-title">{{ 'sdk_landing_impact_title' | translate }}</h2>
-        <p class="lead-text">{{ 'sdk_landing_impact_body_1' | translate }}</p>
-        <p class="desc-text">{{ 'sdk_landing_impact_body_2' | translate }}</p>
-        <p class="impact-closing">{{ 'sdk_landing_impact_body_3' | translate }}</p>
+        <blockquote class="business-closing glass-card" #kpiReveal>
+          <span class="closing-orb closing-orb-start" aria-hidden="true"></span>
+          <span class="closing-orb closing-orb-end" aria-hidden="true"></span>
+          <span class="closing-quote" aria-hidden="true">“</span>
+          <p class="closing-text">{{ 'sdk_landing_business_closing' | translate }}</p>
+          <span class="closing-shine" aria-hidden="true"></span>
+        </blockquote>
       </div>
     </section>
 

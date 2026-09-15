@@ -17,10 +17,31 @@ export class LandingComponent implements AfterViewInit, OnDestroy {
   @ViewChildren('kpiReveal') kpiRevealEls!: QueryList<ElementRef<HTMLElement>>;
 
   private observer?: IntersectionObserver;
+  private revealFallbackTimer?: ReturnType<typeof setTimeout>;
 
   ngAfterViewInit(): void {
+    // Defer so template refs are ready after HMR / change detection.
+    this.revealFallbackTimer = setTimeout(() => this.setupReveal(), 0);
+  }
+
+  ngOnDestroy(): void {
+    if (this.revealFallbackTimer) {
+      clearTimeout(this.revealFallbackTimer);
+    }
+    this.observer?.disconnect();
+  }
+
+  private setupReveal(): void {
+    const elements = this.kpiRevealEls?.toArray() ?? [];
+
+    if (!elements.length) {
+      return;
+    }
+
+    const reveal = (el: HTMLElement) => el.classList.add('is-visible');
+
     if (typeof IntersectionObserver === 'undefined') {
-      this.kpiRevealEls.forEach((el) => el.nativeElement.classList.add('is-visible'));
+      elements.forEach((ref) => reveal(ref.nativeElement));
       return;
     }
 
@@ -31,17 +52,18 @@ export class LandingComponent implements AfterViewInit, OnDestroy {
             return;
           }
 
-          entry.target.classList.add('is-visible');
+          reveal(entry.target as HTMLElement);
           this.observer?.unobserve(entry.target);
         });
       },
-      { threshold: 0.2, rootMargin: '0px 0px -40px 0px' }
+      { threshold: 0.05, rootMargin: '0px 0px 80px 0px' }
     );
 
-    this.kpiRevealEls.forEach((el) => this.observer?.observe(el.nativeElement));
-  }
+    elements.forEach((ref) => this.observer?.observe(ref.nativeElement));
 
-  ngOnDestroy(): void {
-    this.observer?.disconnect();
+    // Fail-open: never leave KPI cards stuck at opacity 0.
+    this.revealFallbackTimer = setTimeout(() => {
+      elements.forEach((ref) => reveal(ref.nativeElement));
+    }, 400);
   }
 }

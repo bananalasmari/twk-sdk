@@ -195,6 +195,31 @@ $text-muted: rgba(255, 255, 255, 0.7);
     }
   }
 
+  .elm-logo-badge {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    height: 48px;
+    padding: 0.45rem 0.75rem;
+    border-radius: 14px;
+    background: #ffffff;
+    border: 1px solid rgba(255, 255, 255, 0.2);
+    box-shadow: 0 8px 20px rgba(0, 0, 0, 0.18);
+
+    img {
+      display: block;
+      height: 28px;
+      width: auto;
+      object-fit: contain;
+    }
+  }
+
+  .coming-card-pay {
+    .card-top {
+      align-items: flex-start;
+    }
+  }
+
   .soon-badge {
     display: inline-flex;
     align-items: center;
