@@ -71,6 +71,86 @@
       </div>
     </div>
 
+    <!-- Business Value Section -->
+    <section class="business-value" id="why-use-sdk" dir="rtl">
+      <div class="business-value-inner">
+        <header class="business-header">
+          <h2 class="section-title">{{ 'sdk_landing_business_title' | translate }}</h2>
+          <p class="business-intro">{{ 'sdk_landing_business_intro' | translate }}</p>
+        </header>
+
+        <div class="kpi-block">
+          <div class="kpi-group-label">{{ 'sdk_landing_business_current_label' | translate }}</div>
+
+          <div class="kpi-grid">
+            <article class="glass-card kpi-card" #kpiReveal>
+              <span class="kpi-value">{{ 'sdk_landing_business_kpi_users_value' | translate }}</span>
+              <span class="kpi-label">{{ 'sdk_landing_business_kpi_users_label' | translate }}</span>
+            </article>
+
+            <article class="glass-card kpi-card kpi-card-featured" #kpiReveal>
+              <span class="kpi-value">{{ 'sdk_landing_business_kpi_visits_value' | translate }}</span>
+              <span class="kpi-label">{{ 'sdk_landing_business_kpi_visits_label' | translate }}</span>
+            </article>
+
+            <article class="glass-card kpi-card" #kpiReveal>
+              <span class="kpi-value">{{ 'sdk_landing_business_kpi_services_value' | translate }}</span>
+              <span class="kpi-label">{{ 'sdk_landing_business_kpi_services_label' | translate }}</span>
+            </article>
+          </div>
+        </div>
+
+        <article class="glass-card target-card" #kpiReveal>
+          <div class="target-badge">{{ 'sdk_landing_business_target_badge' | translate }}</div>
+          <div class="target-content">
+            <div class="target-metric">
+              <span class="kpi-value">{{ 'sdk_landing_business_target_value' | translate }}</span>
+              <span class="kpi-label">{{ 'sdk_landing_business_target_label' | translate }}</span>
+            </div>
+            <p class="target-body">{{ 'sdk_landing_business_target_body' | translate }}</p>
+          </div>
+        </article>
+
+        <div class="strategic-stack">
+          <article class="glass-card strategic-card" #kpiReveal>
+            <h3>{{ 'sdk_landing_business_beyond_title' | translate }}</h3>
+            <p>{{ 'sdk_landing_business_beyond_body' | translate }}</p>
+          </article>
+
+          <article class="glass-card national-card" #kpiReveal>
+            <div class="national-ambient" aria-hidden="true"></div>
+            <div class="national-layout">
+              <div class="national-flag-panel">
+                <div class="flag-orbit" aria-hidden="true"></div>
+                <div class="flag-frame">
+                  <img
+                    class="saudi-flag"
+                    src="assets/images/saudi-flag.svg"
+                    [attr.alt]="'sdk_landing_business_national_flag_alt' | translate"
+                    width="900"
+                    height="600"
+                    loading="lazy"
+                  />
+                </div>
+              </div>
+
+              <div class="national-copy">
+                <span class="national-eyebrow">
+                  <span class="eyebrow-dot" aria-hidden="true"></span>
+                  {{ 'sdk_landing_business_national_eyebrow' | translate }}
+                </span>
+                <h3>{{ 'sdk_landing_business_national_title' | translate }}</h3>
+                <p>{{ 'sdk_landing_business_national_body' | translate }}</p>
+                <div class="national-accent-line" aria-hidden="true"></div>
+              </div>
+            </div>
+          </article>
+        </div>
+
+        <p class="business-closing">{{ 'sdk_landing_business_closing' | translate }}</p>
+      </div>
+    </section>
+
     <!-- Impact Section -->
     <section class="impact-sdk">
       <div class="glass-card feature-highlight">

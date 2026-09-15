@@ -299,6 +299,450 @@ $text-muted: rgba(255, 255, 255, 0.7);
     }
   }
 
+  // Business value / executive impact
+  .business-value {
+    margin-bottom: 4.5rem;
+    direction: rtl;
+    text-align: right;
+
+    .business-value-inner {
+      display: flex;
+      flex-direction: column;
+      gap: 2rem;
+    }
+
+    .business-header {
+      max-width: 820px;
+    }
+
+    .section-title {
+      font-size: clamp(1.75rem, 2.5vw, 2.25rem);
+      font-weight: 700;
+      margin-bottom: 1.25rem;
+      background: linear-gradient(to left, #fff, rgba(255, 255, 255, 0.55));
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+      background-clip: text;
+    }
+
+    .business-intro {
+      margin: 0;
+      font-size: 1.1rem;
+      line-height: 1.85;
+      color: rgba(255, 255, 255, 0.88);
+    }
+
+    .kpi-block {
+      display: flex;
+      flex-direction: column;
+      gap: 1rem;
+    }
+
+    .kpi-group-label {
+      display: inline-flex;
+      align-self: flex-start;
+      padding: 0.4rem 0.9rem;
+      border-radius: 999px;
+      font-size: 0.8rem;
+      font-weight: 600;
+      letter-spacing: 0.02em;
+      color: rgba(255, 255, 255, 0.85);
+      background: rgba(255, 255, 255, 0.06);
+      border: 1px solid rgba(255, 255, 255, 0.1);
+    }
+
+    .kpi-grid {
+      display: grid;
+      grid-template-columns: 1fr 1.35fr 1fr;
+      gap: 1.25rem;
+    }
+
+    .kpi-card,
+    .target-card,
+    .strategic-card,
+    .national-card {
+      opacity: 0;
+      transform: translate3d(0, 28px, 0);
+      transition:
+        opacity 0.65s ease,
+        transform 0.65s ease,
+        background 0.3s ease,
+        border-color 0.3s ease;
+
+      &.is-visible {
+        opacity: 1;
+        transform: translate3d(0, 0, 0);
+      }
+    }
+
+    .kpi-card {
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      gap: 0.75rem;
+      min-height: 170px;
+      padding: 1.75rem 1.5rem;
+      text-align: center;
+
+      &:nth-child(2).is-visible {
+        transition-delay: 0.08s;
+      }
+
+      &:nth-child(3).is-visible {
+        transition-delay: 0.16s;
+      }
+    }
+
+    .kpi-card-featured {
+      min-height: 210px;
+      padding: 2rem 1.5rem;
+      background:
+        linear-gradient(160deg, rgba(255, 93, 54, 0.18) 0%, rgba(90, 44, 131, 0.16) 55%, rgba(255, 255, 255, 0.03) 100%);
+      border-color: rgba(255, 93, 54, 0.35);
+      box-shadow: 0 16px 40px rgba(255, 93, 54, 0.12);
+
+      .kpi-value {
+        font-size: clamp(2.6rem, 4.5vw, 3.6rem);
+        background: linear-gradient(120deg, #fff 10%, #ff8f72 55%, #ff5d36 100%);
+        -webkit-background-clip: text;
+        -webkit-text-fill-color: transparent;
+        background-clip: text;
+      }
+
+      .kpi-label {
+        font-size: 1.05rem;
+        color: rgba(255, 255, 255, 0.92);
+      }
+    }
+
+    .kpi-value {
+      font-size: clamp(2rem, 3.2vw, 2.75rem);
+      font-weight: 800;
+      line-height: 1.1;
+      letter-spacing: -0.02em;
+      color: #fff;
+      font-variant-numeric: tabular-nums;
+    }
+
+    .kpi-label {
+      font-size: 0.95rem;
+      line-height: 1.55;
+      color: $text-muted;
+    }
+
+    .target-card {
+      position: relative;
+      padding: 1.75rem 1.75rem 1.85rem;
+      background: linear-gradient(145deg, rgba(90, 44, 131, 0.2) 0%, rgba(255, 255, 255, 0.03) 100%);
+      border-color: rgba(118, 60, 188, 0.35);
+      border-style: dashed;
+
+      .target-badge {
+        display: inline-flex;
+        margin-bottom: 1.15rem;
+        padding: 0.35rem 0.85rem;
+        border-radius: 999px;
+        font-size: 0.78rem;
+        font-weight: 700;
+        color: #fff;
+        background: linear-gradient(120deg, rgba(118, 60, 188, 0.9), rgba(255, 93, 54, 0.75));
+      }
+
+      .target-content {
+        display: grid;
+        grid-template-columns: minmax(180px, 240px) 1fr;
+        gap: 1.5rem;
+        align-items: center;
+      }
+
+      .target-metric {
+        display: flex;
+        flex-direction: column;
+        gap: 0.55rem;
+      }
+
+      .kpi-value {
+        font-size: clamp(2.4rem, 4vw, 3.2rem);
+        background: linear-gradient(120deg, #fff, #c9a6ff);
+        -webkit-background-clip: text;
+        -webkit-text-fill-color: transparent;
+        background-clip: text;
+      }
+
+      .target-body {
+        margin: 0;
+        color: $text-muted;
+        line-height: 1.8;
+        font-size: 1rem;
+      }
+    }
+
+    .strategic-stack {
+      display: flex;
+      flex-direction: column;
+      gap: 1.25rem;
+    }
+
+    .strategic-card {
+      padding: 2rem;
+
+      h3 {
+        margin: 0 0 1rem;
+        font-size: 1.35rem;
+        font-weight: 700;
+        color: $text-main;
+      }
+
+      p {
+        margin: 0;
+        color: $text-muted;
+        line-height: 1.8;
+      }
+    }
+
+    .national-card {
+      position: relative;
+      overflow: hidden;
+      padding: 0;
+      border-color: rgba(0, 140, 80, 0.28);
+      background:
+        linear-gradient(135deg, rgba(0, 84, 48, 0.42) 0%, rgba(5, 29, 73, 0.55) 42%, rgba(90, 44, 131, 0.22) 100%);
+      box-shadow:
+        0 20px 50px rgba(0, 84, 48, 0.18),
+        inset 0 1px 0 rgba(255, 255, 255, 0.06);
+
+      &:hover {
+        border-color: rgba(0, 180, 100, 0.4);
+        background:
+          linear-gradient(135deg, rgba(0, 84, 48, 0.5) 0%, rgba(5, 29, 73, 0.58) 42%, rgba(90, 44, 131, 0.28) 100%);
+      }
+
+      .national-ambient {
+        position: absolute;
+        inset: auto auto -30% -10%;
+        width: 55%;
+        height: 90%;
+        background: radial-gradient(circle, rgba(0, 170, 90, 0.28) 0%, transparent 68%);
+        filter: blur(18px);
+        pointer-events: none;
+      }
+
+      .national-layout {
+        position: relative;
+        z-index: 1;
+        display: grid;
+        grid-template-columns: minmax(180px, 280px) 1fr;
+        gap: 2rem;
+        align-items: center;
+        padding: 2rem 2.25rem;
+      }
+
+      .national-flag-panel {
+        position: relative;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        min-height: 160px;
+      }
+
+      .flag-orbit {
+        position: absolute;
+        width: 210px;
+        height: 210px;
+        border-radius: 50%;
+        background:
+          conic-gradient(
+            from 180deg,
+            rgba(0, 180, 100, 0.35),
+            rgba(255, 255, 255, 0.08),
+            rgba(0, 84, 48, 0.45),
+            rgba(255, 255, 255, 0.08),
+            rgba(0, 180, 100, 0.35)
+          );
+        opacity: 0.55;
+        filter: blur(1px);
+        animation: national-orbit 12s linear infinite;
+      }
+
+      .flag-frame {
+        position: relative;
+        z-index: 1;
+        width: min(100%, 240px);
+        aspect-ratio: 3 / 2;
+        border-radius: 16px;
+        overflow: hidden;
+        border: 1px solid rgba(255, 255, 255, 0.22);
+        box-shadow:
+          0 18px 40px rgba(0, 0, 0, 0.35),
+          0 0 0 6px rgba(0, 84, 48, 0.22),
+          0 0 40px rgba(0, 160, 90, 0.25);
+        background: #005430;
+        transform: rotate(-2deg);
+        transition: transform 0.45s ease, box-shadow 0.45s ease;
+      }
+
+      &:hover .flag-frame {
+        transform: rotate(0deg) translateY(-4px);
+        box-shadow:
+          0 24px 48px rgba(0, 0, 0, 0.4),
+          0 0 0 7px rgba(0, 84, 48, 0.28),
+          0 0 55px rgba(0, 180, 100, 0.35);
+      }
+
+      .saudi-flag {
+        display: block;
+        width: 100%;
+        height: 100%;
+        object-fit: cover;
+      }
+
+      .national-copy {
+        display: flex;
+        flex-direction: column;
+        align-items: flex-start;
+        gap: 0.85rem;
+      }
+
+      .national-eyebrow {
+        display: inline-flex;
+        align-items: center;
+        gap: 0.55rem;
+        padding: 0.4rem 0.85rem;
+        border-radius: 999px;
+        font-size: 0.78rem;
+        font-weight: 700;
+        letter-spacing: 0.02em;
+        color: rgba(255, 255, 255, 0.95);
+        background: rgba(0, 84, 48, 0.45);
+        border: 1px solid rgba(0, 180, 100, 0.35);
+        backdrop-filter: blur(8px);
+      }
+
+      .eyebrow-dot {
+        width: 8px;
+        height: 8px;
+        border-radius: 50%;
+        background: #27c93f;
+        box-shadow: 0 0 10px rgba(39, 201, 63, 0.8);
+      }
+
+      h3 {
+        margin: 0;
+        font-size: clamp(1.5rem, 2.4vw, 2rem);
+        font-weight: 800;
+        line-height: 1.35;
+        background: linear-gradient(120deg, #ffffff 15%, #9dffc4 55%, #27c93f 100%);
+        -webkit-background-clip: text;
+        -webkit-text-fill-color: transparent;
+        background-clip: text;
+      }
+
+      p {
+        margin: 0;
+        max-width: 46rem;
+        color: rgba(255, 255, 255, 0.82);
+        line-height: 1.85;
+        font-size: 1.02rem;
+      }
+
+      .national-accent-line {
+        width: 88px;
+        height: 3px;
+        margin-top: 0.35rem;
+        border-radius: 999px;
+        background: linear-gradient(90deg, #27c93f, rgba(255, 255, 255, 0.15));
+      }
+    }
+
+    @keyframes national-orbit {
+      to {
+        transform: rotate(360deg);
+      }
+    }
+
+    .business-closing {
+      margin: 0.5rem 0 0;
+      padding: 1.5rem 1.75rem;
+      border-radius: 24px;
+      text-align: center;
+      font-size: clamp(1.05rem, 2vw, 1.25rem);
+      font-weight: 700;
+      line-height: 1.7;
+      color: #fff;
+      background: linear-gradient(120deg, rgba(255, 93, 54, 0.16), rgba(90, 44, 131, 0.2));
+      border: 1px solid rgba(255, 255, 255, 0.1);
+    }
+
+    @media (max-width: 991px) {
+      .kpi-grid {
+        grid-template-columns: 1fr;
+      }
+
+      .kpi-card-featured {
+        order: -1;
+      }
+
+      .target-card .target-content {
+        grid-template-columns: 1fr;
+      }
+
+      .national-card .national-layout {
+        grid-template-columns: 1fr;
+        text-align: center;
+        padding: 1.75rem;
+      }
+
+      .national-card .national-copy {
+        align-items: center;
+      }
+
+      .national-card p {
+        text-align: center;
+      }
+
+      .national-card .flag-orbit {
+        width: 180px;
+        height: 180px;
+      }
+
+      .national-card .flag-frame {
+        width: min(100%, 220px);
+        transform: none;
+      }
+
+      .national-card:hover .flag-frame {
+        transform: translateY(-4px);
+      }
+    }
+
+    @media (max-width: 575px) {
+      .kpi-card,
+      .kpi-card-featured {
+        min-height: 0;
+        padding: 1.5rem 1.25rem;
+      }
+
+      .target-card,
+      .strategic-card {
+        padding: 1.5rem;
+      }
+
+      .national-card .national-layout {
+        padding: 1.5rem 1.25rem;
+        gap: 1.35rem;
+      }
+
+      .national-card .flag-orbit {
+        width: 150px;
+        height: 150px;
+      }
+
+      .business-closing {
+        padding: 1.25rem;
+      }
+    }
+  }
+
   .grid {
     display: grid;
     grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
@@ -405,6 +849,7 @@ $text-muted: rgba(255, 255, 255, 0.7);
       .arch-node {
         display: flex;
         align-items: center;
+        justify-content: center;
         gap: 0.9rem;
         padding: 0.85rem 1rem;
         border-radius: 14px;
