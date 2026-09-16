@@ -28,6 +28,19 @@ export class ComingSoonComponent implements AfterViewInit, OnDestroy {
     'coming_framework_item_standards',
   ];
 
+  readonly elmProducts = [
+    'coming_elm_product_tawakkalna',
+    'coming_elm_product_payments',
+    'coming_elm_product_yaqeen',
+    'coming_elm_product_muqeem',
+    'coming_elm_product_natheer',
+    'coming_elm_product_tam',
+    'coming_elm_product_nafath',
+    'coming_elm_product_efada',
+    'coming_elm_product_wahed',
+    'coming_elm_product_smart_gateway',
+  ];
+
   readonly valueFlowSteps = [
     'sdk_landing_value_step1',
     'sdk_landing_value_step2',

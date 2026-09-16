@@ -96,10 +96,44 @@
       </div>
     </section>
 
+    <!-- Serves Elm, clients, sectors -->
+    <section class="strategy-section elm-impact-section" id="elm-impact">
+      <header class="strategy-header" #kpiReveal>
+        <span class="section-kicker">02</span>
+        <h2 class="section-title">{{ 'coming_elm_impact_title' | translate }}</h2>
+        <p class="strategy-intro">{{ 'coming_elm_impact_intro' | translate }}</p>
+      </header>
+
+      <div class="elm-impact-grid">
+        <article class="glass-card elm-impact-card elm-impact-card-products" #kpiReveal>
+          <div class="elm-products-banner" aria-hidden="true">
+            <img src="assets/images/elm-logo.png" alt="Elm" width="270" height="148" />
+          </div>
+          <h3>{{ 'coming_elm_impact_card1_title' | translate }}</h3>
+          <p>{{ 'coming_elm_impact_card1_body' | translate }}</p>
+          <div class="elm-products-list">
+            <span class="elm-product-chip" *ngFor="let product of elmProducts">{{ product | translate }}</span>
+          </div>
+        </article>
+        <article class="glass-card elm-impact-card" #kpiReveal>
+          <div class="elm-impact-icon" aria-hidden="true">01</div>
+          <h3>{{ 'coming_elm_impact_card2_title' | translate }}</h3>
+          <p>{{ 'coming_elm_impact_card2_body' | translate }}</p>
+        </article>
+        <article class="glass-card elm-impact-card elm-impact-card-growth" #kpiReveal>
+          <div class="elm-impact-icon elm-impact-icon-growth" aria-hidden="true">↑</div>
+          <h3>{{ 'coming_elm_impact_card4_title' | translate }}</h3>
+          <p>{{ 'coming_elm_impact_card4_body' | translate }}</p>
+        </article>
+      </div>
+
+      <p class="strategy-highlight" #kpiReveal>{{ 'coming_elm_impact_statement' | translate }}</p>
+    </section>
+
     <!-- Value chain -->
     <section class="strategy-section" id="measurable-value">
       <header class="strategy-header" #kpiReveal>
-        <span class="section-kicker">02</span>
+        <span class="section-kicker">03</span>
         <h2 class="section-title">{{ 'sdk_landing_value_title' | translate }}</h2>
         <p class="strategy-intro">{{ 'sdk_landing_value_subtitle' | translate }}</p>
       </header>
@@ -126,7 +160,7 @@
     <!-- Before / After -->
     <section class="strategy-section journey-section" id="service-journey">
       <header class="strategy-header" #kpiReveal>
-        <span class="section-kicker">03</span>
+        <span class="section-kicker">04</span>
         <h2 class="section-title">{{ 'sdk_landing_journey_title' | translate }}</h2>
       </header>
 
@@ -193,7 +227,7 @@
     <!-- Reuse -->
     <section class="strategy-section" id="reuse-scope">
       <header class="strategy-header" #kpiReveal>
-        <span class="section-kicker">04</span>
+        <span class="section-kicker">05</span>
         <h2 class="section-title">{{ 'sdk_landing_reuse_title' | translate }}</h2>
         <p class="strategy-intro">{{ 'sdk_landing_reuse_intro' | translate }}</p>
       </header>
@@ -222,7 +256,7 @@
     <!-- Metrics -->
     <section class="strategy-section" id="impact-metrics">
       <header class="strategy-header" #kpiReveal>
-        <span class="section-kicker">05</span>
+        <span class="section-kicker">06</span>
         <h2 class="section-title">{{ 'sdk_landing_metrics_title' | translate }}</h2>
         <p class="strategy-intro">{{ 'sdk_landing_metrics_intro' | translate }}</p>
       </header>
