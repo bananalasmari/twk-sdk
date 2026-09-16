@@ -6,59 +6,342 @@
   </div>
 
   <div class="content container">
+    <!-- Hero: Framework -->
     <section class="coming-hero">
-      <div class="badge-pill">{{ 'coming_page_label' | translate }}</div>
+      <div class="badge-pill">{{ 'coming_page_label' | translate }} · {{ 'coming_badge' | translate }}</div>
       <h1 class="gradient-text">{{ 'coming_hero_title' | translate }}</h1>
+      <p class="hero-headline">{{ 'sdk_landing_headline' | translate }}</p>
       <p class="subtitle">{{ 'coming_hero_body' | translate }}</p>
+      <p class="hero-statement">{{ 'coming_hero_headline' | translate }}</p>
+      <!-- <div class="hero-actions">
+        <a class="btn btn-primary" href="#why-framework">{{ 'sdk_landing_cta_secondary' | translate }}</a>
+        <a class="btn btn-glass" href="#framework-capabilities">{{ 'sdk_landing_cta_primary' | translate }}</a>
+      </div> -->
     </section>
 
-    <section class="coming-grid">
-      <article class="coming-card">
+
+
+    <!-- Technical capabilities + umbrella -->
+    <section class="strategy-section tech-section" id="framework-capabilities">
+      <!-- <header class="strategy-header" #kpiReveal>
+        <span class="tech-eyebrow">{{ 'sdk_landing_tech_eyebrow' | translate }}</span>
+        <h2 class="section-title">{{ 'sdk_landing_tech_title' | translate }}</h2>
+        <p class="strategy-intro">{{ 'sdk_landing_tech_intro' | translate }}</p>
+      </header>
+
+      <button
+        type="button"
+        class="btn btn-glass tech-toggle"
+        (click)="toggleCapabilities()"
+        [attr.aria-expanded]="showCapabilities"
+      >
+        <span class="tech-toggle-icon" aria-hidden="true">{{ showCapabilities ? '−' : '+' }}</span>
+        {{ (showCapabilities ? 'sdk_landing_tech_toggle_hide' : 'sdk_landing_tech_toggle_show') | translate }}
+      </button>
+
+      <div class="chip-grid tech-caps" *ngIf="showCapabilities" #kpiReveal>
+        <span class="capability-chip" *ngFor="let cap of capabilityItems">{{ cap | translate }}</span>
+      </div> -->
+
+      <section class="framework-card" #kpiReveal>
         <div class="card-top">
-          <span class="feature-icon" aria-hidden="true">
+          <span class="feature-icon feature-icon-lg" aria-hidden="true">
             <svg viewBox="0 0 24 24" fill="none">
-              <rect x="3" y="4" width="18" height="5" rx="1.5" stroke="currentColor" stroke-width="1.6"/>
-              <rect x="3" y="10.5" width="18" height="5" rx="1.5" stroke="currentColor" stroke-width="1.6"/>
-              <rect x="3" y="17" width="18" height="3.5" rx="1.2" stroke="currentColor" stroke-width="1.6"/>
+              <path d="M12 3.2 20.2 8v8L12 20.8 3.8 16V8L12 3.2Z" stroke="currentColor" stroke-width="1.6" stroke-linejoin="round"/>
+              <path d="M12 8.2 16.8 11v4.2L12 18.3 7.2 15.2V11L12 8.2Z" stroke="currentColor" stroke-width="1.6"/>
             </svg>
           </span>
           <span class="soon-badge">{{ 'coming_badge' | translate }}</span>
         </div>
-        <h2>{{ 'coming_env_title' | translate }}</h2>
-        <p>{{ 'coming_env_body' | translate }}</p>
-      </article>
-
-      <article class="coming-card coming-card-pay">
-        <div class="card-top">
-          <span class="elm-logo-badge">
-            <img src="assets/images/elm-logo.png" alt="Elm" width="270" height="148" />
-          </span>
-          <span class="soon-badge">{{ 'coming_badge' | translate }}</span>
+        <h2>{{ 'coming_framework_title' | translate }}</h2>
+        <p>{{ 'coming_framework_body' | translate }}</p>
+        <div class="umbrella">
+          <div class="umbrella-core">{{ 'coming_framework_title' | translate }}</div>
+          <div class="umbrella-arrow" aria-hidden="true"></div>
+          <div class="umbrella-items">
+            <span *ngFor="let item of umbrellaItems">{{ item | translate }}</span>
+          </div>
         </div>
-        <h2>{{ 'coming_pay_title' | translate }}</h2>
-        <p>{{ 'coming_pay_body' | translate }}</p>
-      </article>
+      </section>
     </section>
 
-    <section class="framework-card">
-      <div class="card-top">
-        <span class="feature-icon feature-icon-lg" aria-hidden="true">
-          <svg viewBox="0 0 24 24" fill="none">
-            <path d="M12 3.2 20.2 8v8L12 20.8 3.8 16V8L12 3.2Z" stroke="currentColor" stroke-width="1.6" stroke-linejoin="round"/>
-            <path d="M12 8.2 16.8 11v4.2L12 18.3 7.2 15.2V11L12 8.2Z" stroke="currentColor" stroke-width="1.6"/>
-          </svg>
-        </span>
-        <span class="soon-badge">{{ 'coming_badge' | translate }}</span>
+    <!-- Why framework -->
+    <section class="strategy-section" id="why-framework">
+      <header class="strategy-header" #kpiReveal>
+        <span class="section-kicker">01</span>
+        <h2 class="section-title">{{ 'sdk_landing_why_fw_title' | translate }}</h2>
+        <p class="strategy-intro">{{ 'sdk_landing_why_fw_intro' | translate }}</p>
+      </header>
+      <div class="value-grid">
+        <article class="glass-card value-card" #kpiReveal>
+          <span class="value-index">01</span>
+          <h3>{{ 'sdk_landing_why_fw_card1_title' | translate }}</h3>
+          <p>{{ 'sdk_landing_why_fw_card1_body' | translate }}</p>
+        </article>
+        <article class="glass-card value-card" #kpiReveal>
+          <span class="value-index">02</span>
+          <h3>{{ 'sdk_landing_why_fw_card2_title' | translate }}</h3>
+          <p>{{ 'sdk_landing_why_fw_card2_body' | translate }}</p>
+        </article>
+        <article class="glass-card value-card" #kpiReveal>
+          <span class="value-index">03</span>
+          <h3>{{ 'sdk_landing_why_fw_card3_title' | translate }}</h3>
+          <p>{{ 'sdk_landing_why_fw_card3_body' | translate }}</p>
+        </article>
+        <article class="glass-card value-card" #kpiReveal>
+          <span class="value-index">04</span>
+          <h3>{{ 'sdk_landing_why_fw_card4_title' | translate }}</h3>
+          <p>{{ 'sdk_landing_why_fw_card4_body' | translate }}</p>
+        </article>
       </div>
-      <h2>{{ 'coming_framework_title' | translate }}</h2>
-      <p>{{ 'coming_framework_body' | translate }}</p>
+    </section>
 
-      <div class="umbrella">
-        <div class="umbrella-core">{{ 'coming_framework_title' | translate }}</div>
-        <div class="umbrella-arrow" aria-hidden="true"></div>
-        <div class="umbrella-items">
-          <span *ngFor="let item of umbrellaItems">{{ item | translate }}</span>
+    <!-- Value chain -->
+    <section class="strategy-section" id="measurable-value">
+      <header class="strategy-header" #kpiReveal>
+        <span class="section-kicker">02</span>
+        <h2 class="section-title">{{ 'sdk_landing_value_title' | translate }}</h2>
+        <p class="strategy-intro">{{ 'sdk_landing_value_subtitle' | translate }}</p>
+      </header>
+      <div class="value-flow" #kpiReveal>
+        <div
+          class="value-flow-step"
+          *ngFor="let step of valueFlowSteps; let i = index; let first = first; let last = last"
+          [class.is-first]="first"
+          [class.is-last]="last"
+        >
+          <div class="value-flow-card">
+            <span class="value-flow-num">{{ i + 1 }}</span>
+            <span class="value-flow-label">{{ step | translate }}</span>
+          </div>
+          <span class="value-flow-connector" *ngIf="!last" aria-hidden="true">
+            <span class="value-flow-line"></span>
+            <span class="value-flow-chevron"></span>
+          </span>
         </div>
+      </div>
+      <!-- <p class="strategy-statement" #kpiReveal>{{ 'sdk_landing_value_statement' | translate }}</p> -->
+    </section>
+
+    <!-- Before / After -->
+    <section class="strategy-section journey-section" id="service-journey">
+      <header class="strategy-header" #kpiReveal>
+        <span class="section-kicker">03</span>
+        <h2 class="section-title">{{ 'sdk_landing_journey_title' | translate }}</h2>
+      </header>
+
+      <div class="journey-compare" #kpiReveal>
+        <article class="journey-card journey-current">
+          <header class="journey-card-head">
+            <div class="journey-badge">{{ 'sdk_landing_journey_current_label' | translate }}</div>
+            <span class="journey-meta">{{ journeyCurrentSteps.length }} {{ 'sdk_landing_journey_steps_label' | translate }}</span>
+          </header>
+          <ol class="journey-steps">
+            <li
+              *ngFor="let step of journeyCurrentSteps; let i = index; let first = first; let last = last"
+              [class.is-start]="first"
+              [class.is-end]="last"
+              [class.is-friction]="!first && !last"
+            >
+              <span class="journey-rail" aria-hidden="true">
+                <span class="journey-dot"></span>
+              </span>
+              <span class="journey-step-body">
+                <span class="journey-step-num">{{ i + 1 }}</span>
+                <span class="journey-step-text">{{ step | translate }}</span>
+              </span>
+            </li>
+          </ol>
+        </article>
+
+        <div class="journey-vs" aria-hidden="true">
+          <span class="journey-vs-line"></span>
+          <span class="journey-vs-badge">VS</span>
+          <span class="journey-vs-line"></span>
+        </div>
+
+        <article class="journey-card journey-target">
+          <header class="journey-card-head">
+            <div class="journey-badge journey-badge-target">{{ 'sdk_landing_journey_target_label' | translate }}</div>
+            <span class="journey-meta journey-meta-target">{{ journeyTargetSteps.length }} {{ 'sdk_landing_journey_steps_label' | translate }}</span>
+          </header>
+          <ol class="journey-steps">
+            <li
+              *ngFor="let step of journeyTargetSteps; let i = index; let first = first; let last = last"
+              [class.is-start]="first"
+              [class.is-end]="last"
+              [class.is-focus]="!first && !last"
+            >
+              <span class="journey-rail" aria-hidden="true">
+                <span class="journey-dot"></span>
+              </span>
+              <span class="journey-step-body">
+                <span class="journey-step-num">{{ i + 1 }}</span>
+                <span class="journey-step-text">{{ step | translate }}</span>
+              </span>
+            </li>
+          </ol>
+        </article>
+      </div>
+
+      <div class="journey-highlight" #kpiReveal>
+        <span class="journey-highlight-icon" aria-hidden="true">↓</span>
+        <p>{{ 'sdk_landing_journey_highlight' | translate }}</p>
+      </div>
+    </section>
+
+    <!-- Reuse -->
+    <section class="strategy-section" id="reuse-scope">
+      <header class="strategy-header" #kpiReveal>
+        <span class="section-kicker">04</span>
+        <h2 class="section-title">{{ 'sdk_landing_reuse_title' | translate }}</h2>
+        <p class="strategy-intro">{{ 'sdk_landing_reuse_intro' | translate }}</p>
+      </header>
+      <div class="chip-grid" #kpiReveal>
+        <span class="capability-chip" *ngFor="let item of reuseItems">{{ item | translate }}</span>
+      </div>
+      <p class="strategy-statement" #kpiReveal>{{ 'sdk_landing_reuse_statement' | translate }}</p>
+    </section>
+
+    <!-- DX -->
+    <!-- <section class="strategy-section" id="developer-experience">
+      <header class="strategy-header" #kpiReveal>
+        <span class="section-kicker">05</span>
+        <h2 class="section-title">{{ 'sdk_landing_dx_title' | translate }}</h2>
+      </header>
+      <div class="flow-strip glass-card flow-strip-accent" #kpiReveal>
+        <div class="flow-step" *ngFor="let step of dxFlowSteps; let i = index; let last = last">
+          <span class="flow-num">{{ i + 1 }}</span>
+          <span class="flow-label">{{ step | translate }}</span>
+          <span class="flow-arrow" *ngIf="!last" aria-hidden="true"></span>
+        </div>
+      </div>
+      <p class="strategy-intro" #kpiReveal>{{ 'sdk_landing_dx_body' | translate }}</p>
+    </section> -->
+
+    <!-- Metrics -->
+    <section class="strategy-section" id="impact-metrics">
+      <header class="strategy-header" #kpiReveal>
+        <span class="section-kicker">05</span>
+        <h2 class="section-title">{{ 'sdk_landing_metrics_title' | translate }}</h2>
+        <p class="strategy-intro">{{ 'sdk_landing_metrics_intro' | translate }}</p>
+      </header>
+      <div class="metrics-grid">
+        <article class="glass-card metric-card" *ngFor="let metric of baselineMetrics" #kpiReveal>
+          <div class="metric-card-top">
+            <h3>{{ metric.title | translate }}</h3>
+            <span class="metric-delta">{{ metric.delta | translate }}</span>
+          </div>
+          <div class="metric-row">
+            <div class="metric-cell">
+              <span class="metric-label">{{ 'sdk_landing_metrics_baseline' | translate }}</span>
+              <span class="metric-value">{{ metric.baseline | translate }}</span>
+            </div>
+            <span class="metric-sep" aria-hidden="true"></span>
+            <div class="metric-cell metric-cell-target">
+              <span class="metric-label">{{ 'sdk_landing_metrics_target' | translate }}</span>
+              <span class="metric-value metric-value-target">{{ metric.target | translate }}</span>
+            </div>
+          </div>
+        </article>
+        <article class="glass-card metric-card metric-card-plain" *ngFor="let metric of adoptionMetrics" #kpiReveal>
+          <h3>{{ metric.title | translate }}</h3>
+          <span class="metric-plain-value">{{ metric.value | translate }}</span>
+          <p>{{ metric.body | translate }}</p>
+        </article>
+      </div>
+      <p class="metrics-note" #kpiReveal>{{ 'sdk_landing_metrics_note' | translate }}</p>
+    </section>
+
+    <!-- Scalability -->
+    <section class="strategy-section" id="built-for-growth">
+      <header class="strategy-header" #kpiReveal>
+        <span class="section-kicker">07</span>
+        <h2 class="section-title">{{ 'sdk_landing_scale_title' | translate }}</h2>
+        <p class="strategy-lead">{{ 'sdk_landing_scale_main' | translate }}</p>
+      </header>
+      <div class="scale-grid" #kpiReveal>
+        <div class="scale-item scale-up" *ngFor="let item of scaleUpItems">
+          <span class="scale-dir" aria-hidden="true">↑</span>
+          <span class="scale-label">{{ item | translate }}</span>
+        </div>
+        <div class="scale-item scale-down" *ngFor="let item of scaleDownItems">
+          <span class="scale-dir" aria-hidden="true">↓</span>
+          <span class="scale-label">{{ item | translate }}</span>
+        </div>
+      </div>
+      <p class="strategy-statement" #kpiReveal>{{ 'sdk_landing_scale_statement' | translate }}</p>
+    </section>
+
+    <!-- Roadmap items: envs + payments -->
+    <section class="strategy-section" id="roadmap-items">
+      <header class="strategy-header" #kpiReveal>
+        <span class="section-kicker">08</span>
+        <h2 class="section-title">{{ 'coming_page_label' | translate }}</h2>
+      </header>
+      <section class="coming-grid">
+        <article class="coming-card" #kpiReveal>
+          <div class="card-top">
+            <span class="feature-icon" aria-hidden="true">
+              <svg viewBox="0 0 24 24" fill="none">
+                <rect x="3" y="4" width="18" height="5" rx="1.5" stroke="currentColor" stroke-width="1.6"/>
+                <rect x="3" y="10.5" width="18" height="5" rx="1.5" stroke="currentColor" stroke-width="1.6"/>
+                <rect x="3" y="17" width="18" height="3.5" rx="1.2" stroke="currentColor" stroke-width="1.6"/>
+              </svg>
+            </span>
+            <span class="soon-badge">{{ 'coming_badge' | translate }}</span>
+          </div>
+          <h2>{{ 'coming_env_title' | translate }}</h2>
+          <p>{{ 'coming_env_body' | translate }}</p>
+        </article>
+
+        <article class="coming-card coming-card-pay" #kpiReveal>
+          <div class="card-top">
+            <span class="elm-logo-badge">
+              <img src="assets/images/elm-logo.png" alt="Elm" width="270" height="148" />
+            </span>
+            <span class="soon-badge">{{ 'coming_badge' | translate }}</span>
+          </div>
+          <h2>{{ 'coming_pay_title' | translate }}</h2>
+          <p>{{ 'coming_pay_body' | translate }}</p>
+        </article>
+      </section>
+    </section>
+
+    <!-- Vision -->
+    <section class="strategy-section" id="future-vision">
+      <header class="strategy-header" #kpiReveal>
+        <span class="section-kicker">09</span>
+        <h2 class="section-title">{{ 'sdk_landing_vision_title' | translate }}</h2>
+        <p class="strategy-intro">{{ 'sdk_landing_vision_body' | translate }}</p>
+      </header>
+      <div class="vision-stages">
+        <article class="glass-card vision-card" #kpiReveal>
+          <span class="vision-num">01</span>
+          <span class="vision-stage">{{ 'sdk_landing_vision_stage1_title' | translate }}</span>
+          <h3>{{ 'sdk_landing_vision_stage1_body' | translate }}</h3>
+        </article>
+        <article class="glass-card vision-card" #kpiReveal>
+          <span class="vision-num">02</span>
+          <span class="vision-stage">{{ 'sdk_landing_vision_stage2_title' | translate }}</span>
+          <h3>{{ 'sdk_landing_vision_stage2_body' | translate }}</h3>
+        </article>
+        <article class="glass-card vision-card" #kpiReveal>
+          <span class="vision-num">03</span>
+          <span class="vision-stage">{{ 'sdk_landing_vision_stage3_title' | translate }}</span>
+          <h3>{{ 'sdk_landing_vision_stage3_body' | translate }}</h3>
+        </article>
+      </div>
+    </section>
+
+    <!-- Closing -->
+    <section class="closing-section" id="executive-close">
+      <div class="glass-card closing-panel" #kpiReveal>
+        <h2>{{ 'sdk_landing_closing_title' | translate }}</h2>
+        <p>{{ 'sdk_landing_closing_body' | translate }}</p>
+        <a class="btn btn-primary" href="#framework-capabilities">
+          {{ 'sdk_landing_closing_cta' | translate }}
+        </a>
       </div>
     </section>
   </div>
